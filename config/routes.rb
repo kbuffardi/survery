@@ -15,5 +15,6 @@ Rails.application.routes.draw do
   end
 
   resources :categories
+  resources :foods
 
 end
