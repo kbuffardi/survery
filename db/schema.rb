@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20160411152339) do
   end
 
   create_table "surveys", force: true do |t|
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

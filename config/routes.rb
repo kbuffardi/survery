@@ -19,4 +19,5 @@ Rails.application.routes.draw do
   resources :surveys
 
   get "survey_category_selection" => "pages#survey_category_selection"
+  get "survey_food_selection" => "pages#survey_food_selection"
 end

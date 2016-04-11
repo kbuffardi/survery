@@ -3,4 +3,10 @@ class PagesController < ApplicationController
     @categories = Category.all
     @survey = Survey.new
   end
+
+  def survey_food_selection
+    @survey = current_user.survey
+    @categories = @survey.categories
+    @foods = @survey.categories.foods
+  end
 end
