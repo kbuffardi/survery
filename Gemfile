@@ -20,6 +20,8 @@ gem 'bootstrap-sass-extras'
 gem 'validates_formatting_of'
 gem 'tzinfo-data'
 
+gem "select2-rails"
+
 group :production do
   gem 'rails_12factor'
   gem "pg"

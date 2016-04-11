@@ -1,0 +1,14 @@
+<p>Which of these foods (categories) do you feel are problematic for you? (Mark at least 1)</p>
+
+<%= form_for(@survey) do |f| %>
+	Categories <br>
+	<%= f.select :category_ids, Category.all.collect {|x| [x.name, x.id]}, {}, :multiple => true, id: "e1" %><br>
+	<%= f.submit %>
+<% end %>
+
+
+<script>
+$( document ).ready(function() {
+  $( "#e1" ).select2();
+});
+</script>
