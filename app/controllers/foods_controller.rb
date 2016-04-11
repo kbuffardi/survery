@@ -1,5 +1,6 @@
 class FoodsController < ApplicationController
   before_action :set_food, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
 
   def index
     @foods = Food.all
@@ -10,39 +11,49 @@ class FoodsController < ApplicationController
   end
 
   def new
-    @food = Food.new
+    if current_user.admin_enabled
+      @food = Food.new
+    end
   end
 
   def edit
-    @food = Food.find(params[:id])
+    if current_user.admin_enabled
+      @food = Food.find(params[:id])
+    end
   end
 
   def create
-    @food = Food.new(food_params)
+    if current_user.admin_enabled
+      @food = Food.new(food_params)
 
-    respond_to do |format|
-      if @food.save
-        format.html { redirect_to @food, notice: 'Food was successfully created.' }
-      else
-        format.html { render :new }
+      respond_to do |format|
+        if @food.save
+          format.html { redirect_to @food, notice: 'Food was successfully created.' }
+        else
+          format.html { render :new }
+        end
       end
     end
   end
 
   def update
-    respond_to do |format|
-      if @food.update(food_params)
-        format.html { redirect_to @food, notice: 'Food was successfully updated.' }
-      else
-        format.html { render :edit }
+    if current_user.admin_enabled
+      respond_to do |format|
+        if @food.update(food_params)
+          format.html { redirect_to @food, notice: 'Food was successfully updated.' }
+        else
+          format.html { render :edit }
+        end
       end
     end
   end
 
   def destroy
-    @food.destroy
-    respond_to do |format|
-      format.html { redirect_to foods_url, notice: 'Food was successfully destroyed.' }
+    if current_user.admin_enabled
+      @food.destroy
+      respond_to do |format|
+        format.html { redirect_to foods_url, notice: 'Food was successfully destroyed.' }
+      end
     end
   end
 
