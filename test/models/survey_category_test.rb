@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class VasQuestionTest < ActiveSupport::TestCase
+class SurveyCategoryTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
