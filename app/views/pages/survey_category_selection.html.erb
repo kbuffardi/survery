@@ -2,14 +2,15 @@
 
 <%= form_for(@survey) do |f| %>
 	Categories <br>
-	<%= f.select :category_ids, Category.all.collect {|x| [x.name, x.id]}, {}, :multiple => true, id: "e1" %><br>
+	<%= f.collection_check_boxes :category_ids, Category.all, :id, :name, {}, :multiple => true %><br>
 	<%= f.submit %>
 <% end %>
 
-<!-- we will need to permit category_ids: [] as well -->
 
 <script>
 $( document ).ready(function() {
   $( "#e1" ).select2();
 });
 </script>
+
+
