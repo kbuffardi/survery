@@ -3,4 +3,7 @@ class Survey < ActiveRecord::Base
 
   has_many :survey_categories
   has_many :categories, through: :survey_categories
+
+  has_many :survey_foods
+  has_many :foods, through: :survey_foods
 end

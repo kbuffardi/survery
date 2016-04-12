@@ -3,7 +3,7 @@
 		<p>Which of these foods of category <%= category.name %> do you feel a lack of control around?</p>
 
 		Foods <br>
-		<%= f.select :food_ids, category.foods.collect {|food| [food.name, food.id]}, {}, :multiple => true, id: "e1" %><br>
+		<%= f.collection_check_boxes :food_ids, category.foods.all, :id, :name, {}, :multiple => true %><br>
 	<% end %>		
 	<%= f.submit %>
 <% end %>
