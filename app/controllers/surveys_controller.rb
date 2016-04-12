@@ -13,7 +13,18 @@ class SurveysController < ApplicationController
     end
   end
 
+  def update
+    respond_to do |format|
+      @survey = Survey.find(params[:id])
+      if @survey.update(survey_params)
+        format.html { redirect_to categories_path, notice: 'Survey was successfully updated.' }
+      else
+        format.html { render :edit }
+      end
+    end
+  end
+
     def survey_params
-      params.require(:survey).permit(:user_id, category_ids: [])
+      params.require(:survey).permit(:user_id, category_ids: [], food_ids: [])
     end
 end
