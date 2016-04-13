@@ -3,16 +3,16 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-input.selections {
+ div.selections input{
   display: inline;
 }
 
-label[for].selections {
+ div.selections label[for]{
   display: inline;
   margin: 5px;
 }
 
-label[for]:after.selections {
+div.selections label[for]:after {
   content: "\a";
   white-space: pre;
 }
