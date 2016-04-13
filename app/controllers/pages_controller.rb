@@ -8,4 +8,5 @@ class PagesController < ApplicationController
     @survey = current_user.survey
     @categories = @survey.categories
   end
+
 end

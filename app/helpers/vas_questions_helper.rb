@@ -1,0 +1,2 @@
+module VasQuestionsHelper
+end

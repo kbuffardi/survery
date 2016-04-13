@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     get    "login"   => "users/sessions#new",         as: :new_user_session
     post   "login"   => "users/sessions#create",      as: :user_session
     delete "signout" => "users/sessions#destroy",     as: :destroy_user_session
-    
+
     get    "signup"  => "users/registrations#new",    as: :new_user_registration
     post   "signup"  => "users/registrations#create", as: :user_registration
     put    "signup"  => "users/registrations#update", as: :update_user_registration
@@ -20,4 +20,8 @@ Rails.application.routes.draw do
 
   get "survey_category_selection" => "pages#survey_category_selection"
   get "survey_food_selection" => "pages#survey_food_selection"
+
+  get "food_ranking" => "food_ranks#food_ranking", as: :food_ranking
+  patch "food_ranking" => "food_ranks#food_ranking"
+
 end

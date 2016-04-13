@@ -1,0 +1,2 @@
+class VasQuestionsController < ApplicationController
+end

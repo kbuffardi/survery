@@ -1,3 +1,18 @@
 // Place all the styles related to the Pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+ div.selections input{
+  display: inline;
+}
+
+ div.selections label[for]{
+  display: inline;
+  margin: 5px;
+}
+
+div.selections label[for]:after {
+  content: "\a";
+  white-space: pre;
+}
