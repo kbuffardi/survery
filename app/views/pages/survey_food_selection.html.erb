@@ -4,15 +4,17 @@
   </div>
 </div>
 
+<div class="selections">
 <%= form_for(@survey) do |f| %>
 	<% @categories.each do |category| %>
-		<p>Which of these foods of category <%= category.name %> do you feel a lack of control around?</p>
+		<p>Which of these foods from <%= category.name %> do you feel a lack of control around? (Mark at least 1)</p>
 
 		Foods <br>
 		<%= f.collection_check_boxes :food_ids, category.foods.all, :id, :name, {}, :multiple => true %><br>
-	<% end %>		
-	<%= f.submit %>
+	<% end %>
+	<%= f.submit 'Next' %>
 <% end %>
+</div>
 
 <script>
 $( document ).ready(function() {
