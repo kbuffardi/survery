@@ -15,5 +15,7 @@
 //= require turbolinks
 //= require bootstrap
 //= require select2-full
-
+//= require jquery-ui/sortable
+//= require jquery-ui/effect-highlight
+//= require turbolinks
 //= require_tree .
