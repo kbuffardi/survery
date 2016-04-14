@@ -5,3 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+FoodRank.create(rank: 5, food_id: 1)
+FoodRank.create(rank: 4, food_id: 2)
+FoodRank.create(rank: 2, food_id: 3)

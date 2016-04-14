@@ -21,6 +21,11 @@ Rails.application.routes.draw do
   get "survey_category_selection" => "pages#survey_category_selection"
   get "survey_food_selection" => "pages#survey_food_selection"
 
+
+  resources :food_ranks do
+    post :update_row_order, on: :collection
+  end
+
   get "food_ranking" => "food_ranks#food_ranking", as: :food_ranking
   patch "food_ranking" => "food_ranks#food_ranking"
 
