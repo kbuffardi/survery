@@ -4,10 +4,12 @@
   </div>
 </div>
 
+<h3>Which of these foods do you feel are problematic for you?</h3>
+
 <div class="selections">
 <%= form_for @survey, :url => food_ranking_path do |f| %>
 	<% @categories.each do |category| %>
-		<p>Which of these foods from <%= category.name %> do you feel a lack of control around? (Mark at least 1)</p>
+		<p>Foods from <%= category.name %></p>
 
 		<%= f.collection_check_boxes :food_ids, category.foods.all, :id, :name, {}, :multiple => true %><br>
 	<% end %>

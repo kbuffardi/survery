@@ -4,11 +4,9 @@
   </div>
 </div>
 
-<h1>Sortable Bootstrap Tables in Rails (drag &amp; drop reordering)</h1>
-<h5>
-  <%= link_to 'http://benw.me/posts/sortable-bootstrap-tables/', 'http://benw.me/posts/sortable-bootstrap-tables/' %>
-</h5>
-<div class="panel panel-default">
+<h3>Rank the selected foods from most to least problematic </h3>
+
+<div class="panel panel-default" style="max-width: 300px">
   <table class="table table-bordered table-striped" id="sortable">
     <thead>
       <tr>
@@ -18,15 +16,28 @@
       </tr>
     </thead>
     <tbody>
-      <% @foods.each do |food| %>
-        <tr data-item-id=<%= "#{food.id}" %> class="item">
+      <% @food_ids.each do |food| %>
+      <% if food != 0 %>
+        <tr data-item-id=<%= "#{food.i}" %> class="item">
+          <!-- its passing an int, but expecting a foodrank object(?) not sure how to pass a foodrank based on survey -->
           <td>
-            <%= food.rank %>
+            <%= @foods.find(food).name %>
           </td>
         </tr>
+        <% end %>
       <% end %>
     </tbody>
   </table>
 </div>
 
-<%= params %>
+<% i = 1 %>
+<% @food_ids.each do |food| %>
+<% if food != 0 %>
+<div style="background-color: rgb(249, 249, 249); <% if (i % 2) == 0 %> background-color: white; <% end %> color: rgb(51, 51, 50); clear: left; display: block; border: 1px solid rgb(221, 221, 221); border-right: 0px; border-bottom: 0px; float: left; font-size: 1.3em; padding-top: 5px; height: 37px; width: 37px; text-align: center">
+  <%= i %>
+</div>
+  <% i += 1 %>
+  <% end %>
+<% end %>
+
+<%= button_to "Next", vas_questions_path, class: "btn btn-primary", method: :get %>
