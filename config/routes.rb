@@ -24,7 +24,7 @@ Rails.application.routes.draw do
     post :update_row_order, on: :collection
   end
 
-  get    "food_ranking"  => "food_ranks#food_ranking", as: :food_ranking
+  get    "food_ranking"  => "food_ranks#food_ranking"
   patch  "food_ranking"  => "food_ranks#food_ranking"
   post   "food_ranking"  => "food_ranks#food_ranking"
 

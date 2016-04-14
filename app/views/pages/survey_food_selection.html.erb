@@ -7,7 +7,7 @@
 <h3>Which of these foods do you feel are problematic for you?</h3>
 
 <div class="selections">
-<%= form_for @survey, :url => food_ranking_path do |f| %>
+<%= form_for @survey do |f| %>
 	<% @categories.each do |category| %>
 		<p>Foods from <%= category.name %></p>
 
