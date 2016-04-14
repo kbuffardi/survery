@@ -1,4 +1,6 @@
 class PagesController < ApplicationController
+  before_filter :authenticate_user!
+
   def survey_category_selection
     @categories = Category.all
     @survey = Survey.new

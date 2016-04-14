@@ -22,6 +22,10 @@ gem 'tzinfo-data'
 
 gem "select2-rails"
 
+gem 'autoprefixer-rails'
+gem 'ranked-model'
+gem 'jquery-ui-rails'
+
 group :production do
   gem 'rails_12factor'
   gem "pg"
