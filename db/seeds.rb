@@ -20,3 +20,8 @@ Food.create(name: "Food six", category_id: 3 )
 Food.create(name: "Food seven", category_id: 3 )
 Food.create(name: "Food eight", category_id: 3 )
 Food.create(name: "Food nine", category_id: 4 )
+
+VasQuestion.create(order: 1, prompt_left: "Q1 Left Prompt One", prompt_right: "Right Prompt One", food_unit: "Food Unit One")
+VasQuestion.create(order: 2, prompt_left: "Q2 Left Prompt Two", prompt_right: "Right Prompt Two", food_unit: "Food Unit Two")
+VasQuestion.create(order: 4, prompt_left: "Q4 Left Prompt Three", prompt_right: "Right Prompt Three", food_unit: "Food Unit Three")
+VasQuestion.create(order: 3, prompt_left: "Q3 Left Prompt Four", prompt_right: "Right Prompt Four", food_unit: "Food Unit Four")
