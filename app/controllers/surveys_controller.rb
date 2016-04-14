@@ -18,7 +18,7 @@ class SurveysController < ApplicationController
     respond_to do |format|
       @survey = Survey.find(params[:id])
       if @survey.update(survey_params)
-        format.html { redirect_to categories_path, notice: 'Survey was successfully updated.' }
+        format.html { redirect_to food_ranking_path, notice: 'Survey was successfully updated.' }
       else
         format.html { render :edit }
       end
