@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   patch  "food_ranking"  => "food_ranks#food_ranking"
   post   "food_ranking"  => "food_ranks#food_ranking"
 
-  get    "vas_questions" => "vas_questions#vas_questions", as: :vas_questions
+  get    "vas_questions/:order" => "vas_questions#vas_questions", as: :vas_questions
+  post   "vas_questions/:order" => "vas_answers#create", as: :vas_answers
 
 end

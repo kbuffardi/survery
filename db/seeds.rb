@@ -55,6 +55,8 @@ Food.create(name: "Cauliflower", category_id: 4, unit: "")
 Food.create(name: "Carrots", category_id: 4, unit: "")
 
 VasQuestion.create(order: 1, prompt_left: "_Q1 Left Prompt One_", prompt_right: "_Right Prompt One_")
+VasQuestion.create(order: 2, prompt_left: "_Q2 Left Prompt One_", prompt_right: "_Right Prompt One_")
+VasQuestion.create(order: 3, prompt_left: "_Q3 Left Prompt One_", prompt_right: "_Right Prompt One_")
 
 =begin
 
