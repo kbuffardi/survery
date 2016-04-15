@@ -4,17 +4,20 @@
   </div>
 </div>
 
-<h3>List of all Categories</h3>
+<h3>List of all Categories</h3><br>
 
-<ul>
-  <% @categories.each do |category| %>
-    <li>
-      <%= category.name %>:
+  <% @categories.each_with_index do |category, i| %>
+      <div class="col-md-6">
+      <h4><%= category.name %></h4>
+
+
       <% category.foods.each do |food| %>
-        <%= food.name %>,
+      <div class="col-md-offset-1" >
+        <%= food.name %>
+      </div>
       <% end %>
-    </li>
+      </div>
   <% end %>
-</ul>
+
 <hr>
 <%= button_to "Start Survey", survey_category_selection_path, class: "pull-right", method: :get %>

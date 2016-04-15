@@ -6,39 +6,56 @@
 
 <h3>Rank the selected foods from most to least problematic </h3>
 
-<div class="panel panel-default" style="max-width: 300px">
+
+<div class="panel panel-default table-responsive" style="max-width: 400px">
   <table class="table table-bordered table-striped" id="sortable">
+    <col style="width: 10%">
     <thead>
       <tr>
         <th>
-          Title
+          Rank
+        </th>
+        <th>
+          Food
         </th>
       </tr>
     </thead>
     <tbody>
-      <% @food.each do |food| %>
-      <% if food != 0 %>
+      <% @food.each_with_index do |food, i| %>
       <% # afsf.asfsfa %>
         <tr data-item-id=<%= "#{food.id}" %> class="item">
-          <!-- its passing an int, but expecting a foodrank object(?) not sure how to pass a foodrank based on survey -->
+          <td style="font-size: 1.2em; text-align: center">
+            <%= i + 1 %>
+          </td>
           <td>
             <%= @food.find(food).name %>
+            <%= @fooss %>
           </td>
         </tr>
-        <% end %>
       <% end %>
     </tbody>
   </table>
 </div>
 
-<% i = 1 %>
-<% @food.each do |food| %>
-<% if food != 0 %>
-<div style="background-color: rgb(249, 249, 249); <% if (i % 2) == 0 %> background-color: white; <% end %> color: rgb(51, 51, 50); clear: left; display: block; border: 1px solid rgb(221, 221, 221); border-right: 0px; border-bottom: 0px; float: left; font-size: 1.3em; padding-top: 5px; height: 37px; width: 37px; text-align: center">
-  <%= i %>
+
+<% @food.each_with_index do |food, i| %>
+<div style="background-color: rgb(249, 249, 249); <% if (i % 2) == 0 %> background-color: white; <% end %> color: rgb(51, 51, 50);
+            clear: left; display: block; border: 1px solid rgb(221, 221, 221);
+            float: left; font-size: 1.35em; padding-top: 6px; height: 37px; width: 39px; text-align: center">
+<%= i + 1 %>
 </div>
-  <% i += 1 %>
-  <% end %>
 <% end %>
 
 <%= button_to "Next", vas_questions_path, class: "btn btn-primary", method: :get %>
+
+<script>
+$(function() {
+  var $fixedColumn, $table;
+  $table = $('.table');
+  $fixedColumn = $table.clone().insertBefore($table).addClass('fixed-column');
+  $fixedColumn.find('th:not(:first-child),td:not(:first-child)').remove();
+  $fixedColumn.find('tr').each(function(i, elem) {
+    $(this).height($table.find('tr:eq(' + i + ')').height());
+  });
+});
+  </script>

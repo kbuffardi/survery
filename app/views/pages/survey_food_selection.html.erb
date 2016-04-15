@@ -6,14 +6,14 @@
 
 <h3>Which of these foods do you feel are problematic for you?</h3>
 
-<div class="selections">
+<div class="selections col-md-offset-1 checkbox checkbox-primary">
 <%= form_for @survey do |f| %>
 	<% @categories.each do |category| %>
-		<p>Foods from <%= category.name %></p>
-
+		<h4><%= category.name %></h4>
+<div style="margin-left: 16px">
 		<%= f.collection_check_boxes :food_ids, category.foods.all, :id, :name, {}, :multiple => true %><br>
+    </div>
 	<% end %>
-
 	<%= f.submit 'Next', :class => "btn btn-primary" %>
 
 <% end %>
