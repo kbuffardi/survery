@@ -4,10 +4,16 @@
   </div>
 </div>
 
-<h3>Rank the selected foods from most to least problematic </h3>
+<h3 style="white-space: nowrap">Rank the selected foods from most to least problematic </h3>
 
+<% @food.each_with_index do |food, i| %>
+<div style="position: absolute; top: <%= (37 * i) + 184 %>px; clear: left; display: block;
+            float: left; font-size: 1.35em; padding-top: 6px; height: 37px; width: 55px; text-align: center">
+<%= i + 1 %>
+</div>
+<% end %>
 
-<div class="panel panel-default table-responsive" style="max-width: 400px">
+<div class="panel panel-default" style="max-width: 400px">
   <table class="table table-bordered table-striped" id="sortable">
     <col style="width: 10%">
     <thead>
@@ -25,7 +31,7 @@
       <% # afsf.asfsfa %>
         <tr data-item-id=<%= "#{food.id}" %> class="item">
           <td style="font-size: 1.2em; text-align: center">
-            <%= i + 1 %>
+            <% i + 1 %>
           </td>
           <td>
             <%= @food.find(food).name %>
@@ -38,24 +44,4 @@
 </div>
 
 
-<% @food.each_with_index do |food, i| %>
-<div style="background-color: rgb(249, 249, 249); <% if (i % 2) == 0 %> background-color: white; <% end %> color: rgb(51, 51, 50);
-            clear: left; display: block; border: 1px solid rgb(221, 221, 221);
-            float: left; font-size: 1.35em; padding-top: 6px; height: 37px; width: 39px; text-align: center">
-<%= i + 1 %>
-</div>
-<% end %>
-
 <%= button_to "Next", vas_questions_path, class: "btn btn-primary", method: :get %>
-
-<script>
-$(function() {
-  var $fixedColumn, $table;
-  $table = $('.table');
-  $fixedColumn = $table.clone().insertBefore($table).addClass('fixed-column');
-  $fixedColumn.find('th:not(:first-child),td:not(:first-child)').remove();
-  $fixedColumn.find('tr').each(function(i, elem) {
-    $(this).height($table.find('tr:eq(' + i + ')').height());
-  });
-});
-  </script>
