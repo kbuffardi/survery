@@ -31,4 +31,7 @@ Rails.application.routes.draw do
   get    "vas_questions/:order" => "vas_questions#vas_questions", as: :vas_questions
   post   "vas_questions/:order" => "vas_answers#create", as: :vas_answers
 
+  get "demographics" => "demographics#demographics"
+  get "thank_you" => "demographics#thank_you"
+
 end

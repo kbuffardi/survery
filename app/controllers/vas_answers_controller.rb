@@ -12,7 +12,7 @@ class VasAnswersController < ApplicationController
         if @q_num < 25
           format.html { redirect_to vas_questions_url(@q_num) }
         else
-          format.html { redirect_to vas_questions_url(demographics_path) }
+          format.html { redirect_to demographics_path}
         end
       else
         format.html { render :new }

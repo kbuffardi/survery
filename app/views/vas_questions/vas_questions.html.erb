@@ -6,25 +6,38 @@
 
 <h3>VAS Questions </h3>
 
-<hr>
 <%= form_for @answer do |answer| %>
 
 <% @foods.each do |food| %>
+<hr>
+  <h4 style="font-size: 16px; line-height: 1.6em; clear: both;"><%= @question.prompt_left %> <%= food.name %> <%= @question.prompt_right %></h4>
 
-  <h4 style="font-size: 16px;"><%= @question.prompt_left %> <%= food.name %> <%= @question.prompt_right %></h4>
-  <br>
 
+    <div class="slider-fill col-md-offset-1">
 
-      <%= range_field :vas_answers, :value, min: 1, max: 500, step: 1, class: 'not-clicked' %>
+<%= range_field :vas_answers, :value, min: 1, max: 500, step: 1, class: 'not-clicked' %>
 
+      <div class="slider-ticks" id="slider-tick1"> </div>
+      <div class="slider-ticks" id="slider-tick2"> </div>
+      <div class="slider-ticks" id="slider-tick3"> </div>
+      <div class="slider-ticks" id="slider-tick4"> </div>
+      <div class="slider-ticks" id="slider-tick5"> </div>
+
+      <div class="slider-ticks-text" id="slider-tick-text1"> Never</div>
+      <div class="slider-ticks-text" id="slider-tick-text2"> Once a year </div>
+      <div class="slider-ticks-text" id="slider-tick-text3"> Once a month</div>
+      <div class="slider-ticks-text" id="slider-tick-text4"> Once a week</div>
+      <div class="slider-ticks-text" id="slider-tick-text5"> Once a day</div>
+      <div class="slider-ticks-text" id="slider-tick-text6"> More than once a day</div>
+
+</div>
       <hr>
-
+      <hr>
       <% end %>
-
+<hr>
       <%= answer.submit 'Next', :class => 'btn btn-primary' %>
 
   <% end %>
-
 
 
 
