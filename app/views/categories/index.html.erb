@@ -7,7 +7,13 @@
 <h3>List of all Categories</h3><br>
 
   <% @categories.each_with_index do |category, i| %>
-      <div class="col-md-6">
+      <div class="col-md-6" style=" <% if i == 6 || i == 7 %>
+                                       min-height: 290px;
+                                    <% elsif i == 5 || i == 4 %>
+                                      min-height: 165px;
+                                    <% else %>
+                                      min-height: 215px;
+                                    <% end %> ">
       <h4><%= category.name %></h4>
 
 

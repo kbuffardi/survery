@@ -4,7 +4,16 @@ class VasQuestionsController < ApplicationController
   def vas_questions
     @questions = VasQuestion.all
     @survey = current_user.survey
-    @foods = @survey.foods
+
+    @survey.foods.each_with_index do |food, i|
+      if i == 0
+        @foods = Array.new([food])
+      elsif i < 3
+        @foods << food
+      end
+    end
+
+
     @question = VasQuestion.find(params[:order])
 
     @answer = VasAnswer.new

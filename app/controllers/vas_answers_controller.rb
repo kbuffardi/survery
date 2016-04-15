@@ -9,7 +9,11 @@ class VasAnswersController < ApplicationController
 
     respond_to do |format|
       if @answer.save
-        format.html { redirect_to vas_questions_url(@q_num) }
+        if @q_num < 25
+          format.html { redirect_to vas_questions_url(@q_num) }
+        else
+          format.html { redirect_to vas_questions_url(demographics_path) }
+        end
       else
         format.html { render :new }
       end
