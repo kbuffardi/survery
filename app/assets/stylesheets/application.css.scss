@@ -20,6 +20,13 @@
 
 @import "bootstrap";
 
+@font-face{
+  font-family: AzoftSans;
+  src: url('font/azoft-sans.eot');
+  src: url('font/azoft-sans.eot?#iefix') format('embedded-opentype'),
+       url('font/azoft-sans.ttf') format('truetype');
+}
+
 //->Prelang (ui_framework:twitter_bootstrap)
 
 // Give everything in 'yield' margin to separate it.
@@ -41,9 +48,39 @@ body {
    font-family: "Calibri", Helvetica;
 }
 
-
 .active-item-shadow {
   -webkit-box-shadow: rgba(133,133,133,0.1) 0 0 5px 2px,rgba(133,133,133,0.3) 0 0 2px;
   -moz-box-shadow: rgba(133,133,133,0.1) 0 0 5px 2px,rgba(133,133,133,0.3) 0 0 2px;
   box-shadow: rgba(133,133,133,0.1) 0 0 5px 2px,rgba(133,133,133,0.3) 0 0 2px;
+}
+
+.col-centered {
+    float: none;
+    margin: 0 auto;
+}
+
+.vert-space-sm{
+  display: block;
+  height: 1em;
+  width: 100%;
+  clear: both;
+}
+.vert-space-lg {
+  display: block;
+  height: 2.5em;
+  width: 100%;
+  clear: both;
+}
+
+.progress-text {
+  margin-left: .625em;
+  color: rgb(50,50,50);
+  font-style: italic;
+  font-size: .835em;
+  font-family: Garamond;
+}
+
+.btn-surv {
+  margin-bottom: 30px !important;
+
 }

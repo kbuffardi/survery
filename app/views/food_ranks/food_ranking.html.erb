@@ -28,13 +28,12 @@
     </thead>
     <tbody>
       <% @food.each_with_index do |food, i| %>
-      <% # afsf.asfsfa %>
         <tr data-item-id=<%= "#{food.id}" %> class="item">
           <td style="font-size: 1.2em; text-align: center">
             <% i + 1 %>
           </td>
-          <td>
-            <%= @food.find(food).name %>
+          <td style="cursor: grab ">
+          <div ><%= @food.find(food).name %></div>
             <%= @fooss %>
           </td>
         </tr>
@@ -44,4 +43,4 @@
 </div>
 
 
-<%= button_to "Next", vas_questions_path(1), class: "btn btn-primary", method: :get %>
+<%= button_to "Next", vas_questions_path(1), class: "col-md-offset-9 btn btn-primary btn-surv", method: :get %>
