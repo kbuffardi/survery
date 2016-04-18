@@ -1,19 +1,24 @@
 <div class="progress">
   <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="<%= 20 + (@q_num * 3) %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= 20 + (@q_num * 3) %>%">
-    <span class="sr-only"><%= 20 + (@q_num * 3) %>% Complete (success)</span>
+    <span class="progress-text"><%= 15 + (@q_num * 3.35).to_i %>% Complete</span>
   </div>
 </div>
 
-<h3>VAS Questions </h3>
+<div class="vert-space-sm"> </div>
+
+<center><h3>For each of the following questions, please choose any point on the line </h3></center>
+
+<div class="vert-space-lg"> </div>
 
 <%= form_for @answer do |answer| %>
 
 <% @foods.each do |food| %>
-<hr>
-  <h4 style="font-size: 16px; line-height: 1.6em; clear: both;"><%= @question.prompt_left %> <%= food.name %> <%= @question.prompt_right %></h4>
 
+  <h4 class="col-md-offset-1 col-md-10" style="font-size: 16px; line-height: 1.6em; clear: both;"><%= @question.prompt_left %> <%= food.name %> <%= @question.prompt_right %></h4>
 
-    <div class="slider-fill col-md-offset-1">
+<div class="vert-space-sm"> </div>
+
+    <center><div class="slider-fill">
 
 <%= range_field :vas_answers, :value, min: 1, max: 500, step: 1, class: 'not-clicked' %>
 
@@ -30,9 +35,10 @@
       <div class="slider-ticks-text" id="slider-tick-text5"> Once a day</div>
       <div class="slider-ticks-text" id="slider-tick-text6"> More than once a day</div>
 
-</div>
-      <hr>
-      <hr>
+</div></center>
+
+<div class="vert-space-lg"> </div>
+
       <% end %>
 <hr>
       <%= answer.submit 'Next', :class => 'col-md-offset-9 btn btn-primary btn-surv' %>

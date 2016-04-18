@@ -1,19 +1,27 @@
 <div class="progress">
   <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100" style="width: 15%">
-    <span class="sr-only">15% Complete (success)</span>
+    <span class="progress-text">15% Complete</span>
   </div>
 </div>
 
 <h3 style="white-space: nowrap">Rank the selected foods from most to least problematic </h3>
 
+<div class="vert-space-sm"></div>
+
+<div style="white-space: nowrap; font-size: 1.1em">Click and drag rows to arrange in the proper order</div>
+
+<div class="vert-space-sm"></div>
+<div class="vert-space-sm"></div>
+
 <% @food.each_with_index do |food, i| %>
-<div style="position: absolute; top: <%= (37 * i) + 184 %>px; clear: left; display: block;
+<div class="" style="position: absolute; top: <%= (37 * i) + 256 %>px; clear: left; display: block;
             float: left; font-size: 1.35em; padding-top: 6px; height: 37px; width: 55px; text-align: center">
 <%= i + 1 %>
+
 </div>
 <% end %>
 
-<div class="panel panel-default" style="max-width: 500px; min-width: 420px">
+<div class="panel panel-default" style="max-width: 470px; min-width: 420px">
   <table class="table table-bordered table-striped" id="sortable">
     <col style="width: 10%">
     <thead>
@@ -32,7 +40,7 @@
           <td style="font-size: 1.2em; text-align: center">
             <% i + 1 %>
           </td>
-          <td style="cursor: grab ">
+          <td style="cursor: move">
           <div ><%= @food.find(food).name %></div>
             <%= @fooss %>
           </td>
@@ -43,4 +51,4 @@
 </div>
 
 
-<%= button_to "Next", vas_questions_path(1), class: "col-md-offset-9 btn btn-primary btn-surv", method: :get %>
+<%= button_to "Next", vas_questions_path(1), class: "col-md-offset-8 btn btn-primary btn-surv", method: :get %>

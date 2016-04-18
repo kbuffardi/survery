@@ -1,9 +1,9 @@
 class FoodRanksController < ApplicationController
   before_filter :authenticate_user!
 
-  before_filter :your_action
+  before_filter :create
 
-  def your_action
+  def create
     @survey = current_user.survey
     @food = @survey.foods
 

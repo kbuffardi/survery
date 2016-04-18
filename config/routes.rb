@@ -32,6 +32,7 @@ Rails.application.routes.draw do
   post   "vas_questions/:order" => "vas_answers#create", as: :vas_answers
 
   get "demographics" => "demographics#demographics"
+  post "demographics" => "demographics#thank_you"
   get "thank_you" => "demographics#thank_you"
 
 end

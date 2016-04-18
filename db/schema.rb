@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160415202956) do
+ActiveRecord::Schema.define(version: 20160418141649) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20160415202956) do
     t.string  "weight_management_practices"
     t.string  "medical_conditions"
     t.boolean "raffle"
+    t.integer "survey_id"
   end
 
   create_table "food_ranks", force: true do |t|
