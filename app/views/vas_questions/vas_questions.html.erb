@@ -12,10 +12,10 @@
 
 <%= form_for @answer do |answer| %>
 
-<% @foods.each do |food| %>
+<% @foods.each_with_index do |food, i| %>
 
   <h4 class="col-md-offset-1 col-md-10" style="font-size: 16px; line-height: 1.6em; clear: both;"><%= @question.prompt_left %> <%= food.name %> <%= @question.prompt_right %></h4>
-
+  <script>foodCount = <%=i %>;</script>
 <div class="vert-space-sm"> </div>
 
     <center><div class="slider-fill">
@@ -41,7 +41,7 @@
 
       <% end %>
 <hr>
-      <%= answer.submit 'Next', :class => 'col-md-offset-9 btn btn-primary btn-surv' %>
+      <%= answer.submit 'Next', :class => 'col-md-offset-9 btn btn-primary btn-surv', :disabled => true %>
 
   <% end %>
 
@@ -50,8 +50,21 @@
 <hr>
 
 <script>
+var count = 0;
+$(document).ready(function() {
+  alert("Foods counted: " + foodCount);
+});
+
 $('.not-clicked').click(function(e){
   $(this).removeClass('not-clicked');
   $(this).addClass('clicked');
+  count++;
+  if( count >= foodCount )
+  {
+    alert("All selected of " + foodCount);
+    var nextBtn = document.getElementsByName("commit")[0];
+    nextBtn.removeAttribute('disabled');
+  }
+    
 });
 </script>
