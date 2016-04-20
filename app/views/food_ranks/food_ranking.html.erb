@@ -13,7 +13,7 @@
 <div class="vert-space-sm"></div>
 <div class="vert-space-sm"></div>
 
-<% @food.each_with_index do |food, i| %>
+<% @food_ranks.each_with_index do |food, i| %>
 <div class="" style="position: absolute; top: <%= (37 * i) + 256 %>px; clear: left; display: block;
             float: left; font-size: 1.35em; padding-top: 6px; height: 37px; width: 55px; text-align: center">
 <%= i + 1 %>
@@ -35,14 +35,12 @@
       </tr>
     </thead>
     <tbody>
-      <% @food.each_with_index do |food, i| %>
-        <tr data-item-id=<%= "#{food.id}" %> class="item">
+      <% @food_ranks.each do |food_rank| %>
+        <tr data-item-id=<%= "#{food_rank.id}" %> class="item">
           <td style="font-size: 1.2em; text-align: center">
-            <% i + 1 %>
           </td>
           <td style="cursor: move">
-          <div ><%= @food.find(food).name %></div>
-            <%= @fooss %>
+          <div >| <%= food_rank.row_order %> | <%= Food.find(food_rank.food_id).name %> | <%= food_rank.food_id %> |</div>
           </td>
         </tr>
       <% end %>
@@ -51,4 +49,7 @@
 </div>
 
 
-<%= button_to "Next", vas_questions_path(1), class: "col-md-offset-8 btn btn-primary btn-surv", method: :get %>
+<%= button_to "Next", update_rank_path, class: "col-md-offset-8 btn btn-primary btn-surv", method: :patch %>
+
+<!--  Food.find(food_rank.food_id).name
+-->
