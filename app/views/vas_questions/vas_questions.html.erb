@@ -14,9 +14,9 @@
 
 <% @foods.each do |food| %>
 
-  <h4 class="col-md-offset-1 col-md-10" style="font-size: 16px; line-height: 1.6em; clear: both;"><%= @question.prompt_left %> <%= food.name %> <%= @question.prompt_right %></h4>
+  <h4 class="col-md-offset-1 col-md-10" style="font-size: 16px; line-height: 1.6em; clear: both;"><%= @question.prompt_left %> <strong><%= food.name %></strong> <%= @question.prompt_right %></h4>
 
-<div class="vert-space-sm"> </div>
+
 
     <center><div class="slider-fill">
 
@@ -38,14 +38,14 @@
 </div></center>
 
 <div class="vert-space-lg"> </div>
+<div class="vert-space-sm"> </div>
+    <% end %>
+<div class="vert-space-sm"> </div>
 
-      <% end %>
-<hr>
       <%= answer.submit 'Next', :class => 'col-md-offset-9 btn btn-primary btn-surv', :disabled => true %>
 
   <% end %>
-
-<hr>
+<div class="vert-space-lg"> </div>
 
 <script>
 $('.not-clicked').click(function(e) {
