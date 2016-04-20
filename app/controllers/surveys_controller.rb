@@ -18,8 +18,24 @@ class SurveysController < ApplicationController
     respond_to do |format|
       @survey = Survey.find(params[:id])
       if @survey.update(survey_params)
-        format.html { redirect_to food_ranking_path}
+        if FoodRank.exists?(:user_id => "#{current_user.id}")
+          format.html { redirect_to food_ranks_path }
+        else
+          @survey = current_user.survey
+          @foods = @survey.foods
+          @foods.shuffle.each do |food| #randomizes foods displayed
+            @food_rank = FoodRank.new
+            @food_rank.user_id = current_user.id
+            @food_rank.food_id = food.id
+            if @food_rank.save!
+            else
+              flash.alert = "Food_rank failed to save"
+            end
+          end
+        end
+        format.html { redirect_to food_ranks_path }
       else
+        flash.alert = "Your error messagess"
         format.html { render :edit }
       end
     end

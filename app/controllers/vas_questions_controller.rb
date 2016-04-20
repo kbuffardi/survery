@@ -5,11 +5,14 @@ class VasQuestionsController < ApplicationController
     @questions = VasQuestion.all
     @survey = current_user.survey
 
-    @survey.foods.each_with_index do |food, i|
+
+    @food_ranks = FoodRank.where(user_id: current_user.id, rank: [0, 1, 2])
+
+    @food_ranks.each_with_index do |rank, i|
       if i == 0
-        @foods = Array.new([food])
+        @foods = Array.new([Food.find(rank.food_id)])
       elsif i < 3
-        @foods << food
+        @foods << Food.find(rank.food_id)
       end
     end
 
