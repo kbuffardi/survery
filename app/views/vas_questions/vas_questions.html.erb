@@ -1,9 +1,60 @@
 <div class="progress">
-  <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
-    <span class="sr-only">20% Complete (success)</span>
+  <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="<%= 20 + (@q_num * 3) %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= 20 + (@q_num * 3) %>%">
+    <span class="progress-text"><%= 15 + (@q_num * 3.35).to_i %>% Complete</span>
   </div>
 </div>
 
-<h3>VAS Questions </h3>
+<div class="vert-space-sm"> </div>
 
-<input type="range">
+<center><h3>For each of the following questions, please choose any point on the line </h3></center>
+
+<div class="vert-space-lg"> </div>
+
+<%= form_for @answer do |answer| %>
+
+<% @foods.each do |food| %>
+
+  <h4 class="col-md-offset-1 col-md-10" style="font-size: 16px; line-height: 1.6em; clear: both;"><%= @question.prompt_left %> <%= food.name %> <%= @question.prompt_right %></h4>
+
+<div class="vert-space-sm"> </div>
+
+    <center><div class="slider-fill">
+
+<%= range_field :vas_answers, :value, min: 1, max: 500, step: 1, class: 'not-clicked' %>
+
+      <div class="slider-ticks" id="slider-tick1"> </div>
+      <div class="slider-ticks" id="slider-tick2"> </div>
+      <div class="slider-ticks" id="slider-tick3"> </div>
+      <div class="slider-ticks" id="slider-tick4"> </div>
+      <div class="slider-ticks" id="slider-tick5"> </div>
+
+      <div class="slider-ticks-text" id="slider-tick-text1"> Never</div>
+      <div class="slider-ticks-text" id="slider-tick-text2"> Once a year </div>
+      <div class="slider-ticks-text" id="slider-tick-text3"> Once a month</div>
+      <div class="slider-ticks-text" id="slider-tick-text4"> Once a week</div>
+      <div class="slider-ticks-text" id="slider-tick-text5"> Once a day</div>
+      <div class="slider-ticks-text" id="slider-tick-text6"> More than once a day</div>
+
+</div></center>
+
+<div class="vert-space-lg"> </div>
+
+      <% end %>
+<hr>
+      <%= answer.submit 'Next', :class => 'col-md-offset-9 btn btn-primary btn-surv', :disabled => true %>
+
+  <% end %>
+
+<hr>
+
+<script>
+$('.not-clicked').click(function(e) {
+  $(this).removeClass('not-clicked');
+  $(this).addClass('clicked');
+
+  if ($('.not-clicked').length == 0) {
+   var nextBtn = document.getElementsByName("commit")[0];
+   nextBtn.removeAttribute('disabled');
+  }
+});
+</script>

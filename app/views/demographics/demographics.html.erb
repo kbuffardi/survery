@@ -1,0 +1,96 @@
+<div class="progress">
+  <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+    <span class="progress-text">100% Complete</span>
+  </div>
+</div>
+
+<h3>Demographics Information</h3>
+
+<div class="vert-space-lg"></div>
+
+<%= form_for @demographic do |f| %>
+
+1. Have you ever had a medical diagnosis of Anorexia Nervosa, Bulimia Nervosa and/or Binge Eating Disorder? <br>
+
+  <%= f.radio_button :eating_disorder, true %> Yes <br>
+  <%= f.radio_button :eating_disorder, false %> No
+
+<div class="vert-space-sm"></div>
+2. Age (you must be 18-45 or of childbearing age to participate)<br>
+  <%= f.radio_button :age, 1 %> under 18 <br>
+  <%= f.radio_button :age, 2  %> 18 - 27 <br>
+  <%= f.radio_button :age, 3  %> 28 - 37 <br>
+  <%= f.radio_button :age, 4  %> 38 - 45 <br>
+  <%= f.radio_button :age, 4  %> over 45 <br>
+
+<div class="vert-space-sm"></div>
+3. Gender:<br>
+  <%= f.radio_button :gender, 1  %> Female <br>
+  <%= f.radio_button :gender, 2  %> Male <br>
+  <%= f.radio_button :gender, 3  %> Other <br>
+
+<div class="vert-space-sm"></div>
+4. Race/ethnicity <br>
+  <%= f.check_box :ethnicity, {multiple: true}, "Asian" %> Asian<br>
+  <%= f.check_box :ethnicity, {multiple: true}, "African American" %>African American <br>
+  <%= f.check_box :ethnicity, {multiple: true}, "Hispanic" %> Hispanic<br>
+  <%= f.check_box :ethnicity, {multiple: true}, "Non-Hispanic White" %>Non-Hispanic White <br>
+  <%= f.check_box :ethnicity, {multiple: true}, "Native American" %>Native American <br>
+  Other: <%= f.text_field :ethnicity %> <br>
+
+<div class="vert-space-sm"></div>
+5. Height:<br>
+  Inches (change):<%= f.text_field :height_in_inches %>
+
+<div class="vert-space-sm"></div>
+6. Weight:<br>
+  Pounds: <%= f.text_field :weight %>
+
+<div class="vert-space-sm"></div>
+7. In any given week, how much alcohol do you consume? <br>
+  <%= f.check_box :alcohol_consumption, {multiple: true}, "None" %> None<br>
+  <%= f.check_box :alcohol_consumption, {multiple: true}, "1 - 4 drinks a week" %> 1 - 4 drinks a week<br>
+  <%= f.check_box :alcohol_consumption, {multiple: true}, "One drink a day" %> One drink a day<br>
+  <%= f.check_box :alcohol_consumption, {multiple: true}, "2-3 drinks per day" %> 2-3 drinks per day<br>
+  <%= f.check_box :alcohol_consumption, {multiple: true}, "More than 3 drinks per day" %> More than 3 drinks per day<br>
+
+<div class="vert-space-sm"></div>                                               <!-- this one is truely a disaster -->
+8. Current or previous weight management practices (check all that apply) <br>
+  <%= f.check_box :weight_management_practices, {multiple: true}, "Diet" %> Diet (list any here): <%= f.text_field :weight_management_practices %> <br>
+  <%= f.check_box :weight_management_practices, {multiple: true}, "Restricting food or calories" %> Restricting food or calories<br>
+  <%= f.check_box :weight_management_practices, {multiple: true}, "Weight loss program" %> Weight loss program (list any here): <%= f.text_field :weight_management_practices %> <br>
+  <%= f.check_box :weight_management_practices, {multiple: true}, "Recording/tracking food" %> Recording/tracking food <br>
+  <%= f.check_box :weight_management_practices, {multiple: true}, "Exercise to lose or maintain weight" %> Exercise to lose or maintain weight <br>
+  <%= f.check_box :weight_management_practices, {multiple: true}, "Other methods to lose or maintain weight" %> Other methods to lose or maintain weight (list any here): <%= f.text_field :weight_management_practices %> <br>
+
+<div class="vert-space-sm"></div>
+9. Has your doctor ever told you that you have (check all that apply): <br>
+  <%= f.check_box :medical_conditions, {multiple: true}, "Diabetes (Type 2) or high blood sugar" %> Diabetes (Type 2) or high blood sugar <br>
+  <%= f.check_box :medical_conditions, {multiple: true}, "High Blood Pressure or hypertension" %> High Blood Pressure or hypertension <br>
+  <%= f.check_box :medical_conditions, {multiple: true}, "High Total Cholesterol, LDL or triglycerides" %> High Total Cholesterol, LDL or triglycerides <br>
+  <%= f.check_box :medical_conditions, {multiple: true}, "Fatty liver disease" %> Fatty Liver disease <br>
+  <%= f.check_box :medical_conditions, {multiple: true}, "Sleep apnea" %> Sleep apnea <br>
+  <%= f.check_box :medical_conditions, {multiple: true}, "Other Problems related to being overweight or obease" %> Other Problems related to being overweight or obease: <%= f.text_field :weight_management_practices %> <br>
+
+
+<div class="vert-space-lg"></div>
+
+
+<%= f.submit "End Survey", class: "btn btn-primary col-md-offset-8" %>
+
+<% end %>
+
+<!--
+create_table "demographics", force: true do |t|
+  t.boolean "eating_disorder"
+  t.integer "age"
+  t.string  "gender"
+  t.string  "ethnicity"
+  t.integer "height_in_inches"
+  t.integer "weight"
+  t.string  "alcohol_consumption"
+  t.string  "weight_management_practices"
+  t.string  "medical_conditions"
+  t.boolean "raffle"
+end
+-->

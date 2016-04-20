@@ -11,12 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160414052625) do
+ActiveRecord::Schema.define(version: 20160418141649) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "demographics", force: true do |t|
+    t.boolean "eating_disorder"
+    t.integer "age"
+    t.string  "gender"
+    t.string  "ethnicity"
+    t.integer "height_in_inches"
+    t.integer "weight"
+    t.string  "alcohol_consumption"
+    t.string  "weight_management_practices"
+    t.string  "medical_conditions"
+    t.boolean "raffle"
+    t.integer "survey_id"
   end
 
   create_table "food_ranks", force: true do |t|
@@ -33,6 +47,7 @@ ActiveRecord::Schema.define(version: 20160414052625) do
     t.integer  "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "unit"
   end
 
   create_table "survey_categories", force: true do |t|
@@ -88,7 +103,6 @@ ActiveRecord::Schema.define(version: 20160414052625) do
     t.datetime "updated_at"
     t.string   "prompt_left"
     t.string   "prompt_right"
-    t.string   "food_unit"
   end
 
 end
