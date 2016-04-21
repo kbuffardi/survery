@@ -2,11 +2,12 @@ class VasAnswersController < ApplicationController
   before_filter :authenticate_user!
 
   def create
-
-    @answer = VasAnswer.new(answer_params[:vas_answers])
+    # all wrong probably :)
+    # currently unused
+    @survey = current_user.survey
+    @answer = VasAnswer.new(answer_params)
     @q_num = params[:order]
     @q_num = @q_num.to_i + 1
-
     respond_to do |format|
       if @answer.save
         if @q_num < 25
@@ -14,18 +15,27 @@ class VasAnswersController < ApplicationController
         else
           format.html { redirect_to demographics_path}
         end
+      end
+    end
+  end
+
+  def update
+    @survey = current_user.survey
+    @q_num = params[:order]
+    @q_num = @q_num.to_i + 1
+    respond_to do |format|
+      if @survey.update(survey_params)
+        format.html { redirect_to vas_questions_url(@q_num), notice: 'Answer was successfully updated.' }
       else
-        format.html { render :new }
+        flash.alert = "Your error messagess"
       end
     end
   end
 
 private
-    def answer_params
-      params.require(:vas_answers).permit(:value, :user_id)
+    def survey_params
+      params.require(:survey).permit( values: [], question_number: [] )
     end
 
-      # @vas_answer = VasAnswer.new
-      # @vas_answer.user_id = current_user.id
 
 end

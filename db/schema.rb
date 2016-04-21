@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160420072736) do
+ActiveRecord::Schema.define(version: 20160421145050) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -91,10 +91,9 @@ ActiveRecord::Schema.define(version: 20160420072736) do
 
   create_table "vas_answers", force: true do |t|
     t.integer  "value"
-    t.integer  "user_id"
-    t.integer  "vas_question_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "survey_id"
   end
 
   create_table "vas_questions", force: true do |t|

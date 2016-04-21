@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   get    "survey_food_selection"     => "pages#survey_food_selection"
 
   get    "vas_questions/:order" => "vas_questions#vas_questions", as: :vas_questions
-  post   "vas_questions/:order" => "vas_answers#create", as: :vas_answers
+  patch  "vas_questions/:order" => "vas_answers#update", as: :update_answers
 
   get "demographics" => "demographics#demographics"
   post "demographics" => "demographics#thank_you"
