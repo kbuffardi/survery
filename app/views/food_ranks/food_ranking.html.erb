@@ -40,7 +40,9 @@
           <td style="font-size: 1.2em; text-align: center">
           </td>
           <td style="cursor: move">
-          <div >| <%= food_rank.row_order %> | <%= Food.find(food_rank.food_id).name %> | <%= food_rank.food_id %> |</div>
+
+          <div><%= Food.find(food_rank.food_id).name %></div>
+
           </td>
         </tr>
       <% end %>

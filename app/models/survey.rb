@@ -9,4 +9,5 @@ class Survey < ActiveRecord::Base
   has_many :foods, through: :survey_foods
 
   has_many :vas_answers
+  accepts_nested_attributes_for :vas_answers
 end

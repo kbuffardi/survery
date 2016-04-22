@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160418141649) do
+ActiveRecord::Schema.define(version: 20160422090139) do
+
+  create_table "answers", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "user_ids",     default: "--- []\n"
+    t.string   "question_ids", default: "--- []\n"
+    t.string   "survey_ids",   default: "--- []\n"
+    t.string   "vas_values",   default: "--- []\n"
+    t.string   "food_ids",     default: "--- []\n"
+  end
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -24,13 +34,16 @@ ActiveRecord::Schema.define(version: 20160418141649) do
     t.integer "age"
     t.string  "gender"
     t.string  "ethnicity"
-    t.integer "height_in_inches"
-    t.integer "weight"
     t.string  "alcohol_consumption"
     t.string  "weight_management_practices"
     t.string  "medical_conditions"
     t.boolean "raffle"
     t.integer "survey_id"
+    t.string  "weight_management_practices_other", default: ""
+    t.string  "medical_conditions_other"
+    t.string  "ethnicity_other"
+    t.string  "height"
+    t.string  "weight"
   end
 
   create_table "food_ranks", force: true do |t|
@@ -91,18 +104,17 @@ ActiveRecord::Schema.define(version: 20160418141649) do
 
   create_table "vas_answers", force: true do |t|
     t.integer  "value"
-    t.integer  "user_id"
-    t.integer  "vas_question_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "survey_id"
   end
 
   create_table "vas_questions", force: true do |t|
     t.integer  "order"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "prompt_left"
-    t.string   "prompt_right"
+    t.text     "prompt_left"
+    t.text     "prompt_right"
   end
 
 end

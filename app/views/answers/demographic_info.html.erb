@@ -1,0 +1,99 @@
+<%= link_to "Back", :back %>
+<div class="vert-space-sm"></div>
+</tr>
+<div class="panel panel-default">
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>
+          Survey ID
+        </th>
+        <th>
+          Eating Disorder
+        </th>
+        <th>
+          Age
+        </th>
+        <th>
+          Gender
+        </th>
+        <th>
+          Ethnicity
+        </th>
+        <th>
+          Alcohol Consumption
+        </th>
+        <th>
+          Height
+        </th>
+        <th>
+          Weight
+        </th>
+        <th>
+          Weight Management Practices
+        </th>
+        <th>
+          Weight Managemanet "Other"
+        </th>
+        <th>
+          Medical Conditions
+        </th>
+        <th>
+          Medical Conditions "Other"
+        </th>
+        <th>
+          Raffle/gift card
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @demographics.each do |d| %>
+        <tr>
+          <td>
+            <%= d.survey_id %>
+          </td>
+          <td>
+            <%= d.eating_disorder %>
+          </td>
+          <td>
+            <%= d.age %>
+          </td>
+          <td>
+            <%= d.gender %>
+          </td>
+          <td>
+            <%= d.ethnicity %>
+          </td>
+          <td>
+            <%= d.alcohol_consumption %>
+          </td>
+          <td>
+            <%= d.height%>
+          </td>
+          <td>
+            <%= d.weight %>
+          </td>
+          <td>
+            <%= d.weight_management_practices %>
+          </td>
+          <td>
+            <%= d.weight_management_practices_other %>
+          </td>
+          <td>
+            <%= d.medical_conditions %>
+          </td>
+          <td>
+            <%= d.medical_conditions_other %>
+          </td>
+          <td>
+            <% if d.raffle %>
+              <%= d.raffle %>
+            <% else %>
+              <span style="color: red; font-weight: bold"><%= d.raffle %></style>
+            <% end %>
+          </td>
+      </tr>
+        <% end %>
+    </tbody>
+  </table>
+</div>

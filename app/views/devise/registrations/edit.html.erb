@@ -1,4 +1,4 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h3>Edit <%= resource_name.to_s.humanize %></h3>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
@@ -32,8 +32,19 @@
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<div class="vert-space-sm"></div>
 
 <%= link_to "Back", :back %>
+
+<div class="vert-space-sm"></div>
+
+<% if current_user.admin_enabled %>
+  <h4> Admin Panel </h4>
+  <div class="vert-space-sm"></div>
+  <%= link_to "Answer Info", results_url %>
+  <div class="vert-space-sm"></div>
+  <%= link_to "User Info", users_url %>
+  <div class="vert-space-sm"></div>
+  <%= link_to "Demographic Info", demographic_info_url %>
+<% end %>
+<div class="vert-space-sm"></div>
