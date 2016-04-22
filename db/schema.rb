@@ -33,17 +33,17 @@ ActiveRecord::Schema.define(version: 20160422134955) do
     t.boolean "eating_disorder"
     t.integer "age"
     t.string  "gender"
-    t.string  "ethnicity"
-    t.string  "alcohol_consumption"
-    t.string  "weight_management_practices"
-    t.string  "medical_conditions"
     t.boolean "raffle"
     t.integer "survey_id"
-    t.string  "weight_management_practices_other", default: ""
-    t.string  "medical_conditions_other"
     t.string  "ethnicity_other"
     t.string  "height"
     t.string  "weight"
+    t.text    "ethnicity",                         default: ""
+    t.text    "alcohol_consumption",               default: ""
+    t.text    "weight_management_practices",       default: ""
+    t.text    "medical_conditions",                default: ""
+    t.text    "weight_management_practices_other", default: ""
+    t.text    "medical_conditions_other",          default: ""
   end
 
   create_table "food_ranks", force: true do |t|
