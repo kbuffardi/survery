@@ -10,17 +10,20 @@
 
 <div class="vert-space-lg"> </div>
 
-<%= form_for [@survey, @vas_answers], :url => update_answers_path(2), :method => :patch do |f| %>
+<%= form_for @answer do |f| %>
 
 <% @foods.each do |food| %>
 
-  <h4 class="col-md-offset-1 col-md-10" style="font-size: 16px; line-height: 1.6em; clear: both;"><%= @question.prompt_left %> <strong><%= food.name %></strong> <%= @question.prompt_right %></h4>
+  <h4 class="col-md-offset-1 col-md-10" style="font-size: 1.15em; line-height: 1.6em; clear: both;"><%= @question.prompt_left %><strong><span style="font-size: 1.1em"><%= food.name %></span></strong><%= @question.prompt_right %><% if @q_num == 2 %> &nbsp;_____&nbsp; <%= food.unit %><% end %></h4>
 
     <center><div class="slider-fill">
 
-    <%= f.range_field :value, min: 1, max: 500, step: 1, class: 'not-clicked', :multiple => true %>
+    <%= f.range_field :vas_values, min: 1, max: 500, step: 1, class: 'not-clicked', :multiple => true %>
 
-    <%= f.hidden_field :survey, :multiple => true, :value => @survey %>
+    <%= f.hidden_field :user_ids, :multiple => true, :value => current_user.id %>
+    <%= f.hidden_field :question_ids, :multiple => true, :value => @q_num %>
+    <%= f.hidden_field :survey_ids, :multiple => true, :value => @survey.id %>
+    <%= f.hidden_field :food_ids, :multiple => true, :value => food.id %>
 
       <div class="slider-ticks" id="slider-tick1"> </div>
       <div class="slider-ticks" id="slider-tick2"> </div>
@@ -28,12 +31,31 @@
       <div class="slider-ticks" id="slider-tick4"> </div>
       <div class="slider-ticks" id="slider-tick5"> </div>
 
-      <div class="slider-ticks-text" id="slider-tick-text1"> Never</div>
-      <div class="slider-ticks-text" id="slider-tick-text2"> Once a year </div>
-      <div class="slider-ticks-text" id="slider-tick-text3"> Once a month</div>
-      <div class="slider-ticks-text" id="slider-tick-text4"> Once a week</div>
-      <div class="slider-ticks-text" id="slider-tick-text5"> Once a day</div>
-      <div class="slider-ticks-text" id="slider-tick-text6"> More than once a day</div>
+
+      <div class="slider-ticks-text" id="slider-tick-text1">  <% if @q_num == 2 %>                    0
+                                                              <% elsif @q_num == 4 || @q_num == 21 %> Agree
+                                                              <% else %>                              Never
+                                                              <% end %></div>
+      <div class="slider-ticks-text" id="slider-tick-text2">  <% if @q_num == 2 %>                    1/2
+                                                              <% elsif @q_num == 4 || @q_num == 21 %>
+                                                              <% else %>                              Once a year
+                                                              <% end %> </div>
+      <div class="slider-ticks-text" id="slider-tick-text3">  <% if @q_num == 2 %>                    3/4
+                                                              <% elsif @q_num == 4 || @q_num == 21 %>
+                                                              <% else %>                              Once a month
+                                                              <% end %></div>
+      <div class="slider-ticks-text" id="slider-tick-text4">  <% if @q_num == 2 %>                    1
+                                                              <% elsif @q_num == 4 || @q_num == 21 %>
+                                                              <% else %>                              Once a week
+                                                              <% end %></div>
+      <div class="slider-ticks-text" id="slider-tick-text5">  <% if @q_num == 2 %>                    More than one
+                                                              <% elsif @q_num == 4 || @q_num == 21 %>
+                                                              <% else %>                              Once a day
+                                                              <% end %></div>
+      <div class="slider-ticks-text" id="slider-tick-text6">  <% if @q_num == 2 %>
+                                                              <% elsif @q_num == 4 || @q_num == 21 %> Disagree
+                                                              <% else %>                              More than once a day
+                                                              <% end %></div>
 
 </div></center>
 

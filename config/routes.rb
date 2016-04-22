@@ -23,6 +23,9 @@ Rails.application.routes.draw do
   get    "vas_questions/:order" => "vas_questions#vas_questions", as: :vas_questions
   patch  "vas_questions/:order" => "vas_answers#update", as: :update_answers
 
+  post  "vas_questions/:order" => "answers#create", as: :answers
+
+
   get "demographics" => "demographics#demographics"
   post "demographics" => "demographics#thank_you"
   get "thank_you" => "demographics#thank_you"

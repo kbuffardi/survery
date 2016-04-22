@@ -2,6 +2,7 @@ class VasQuestionsController < ApplicationController
   before_filter :authenticate_user!
 
   def vas_questions
+    @answer = Answer.new
     @vas_answers = VasAnswer.new
     @questions = VasQuestion.all
     @survey = current_user.survey
@@ -15,7 +16,6 @@ class VasQuestionsController < ApplicationController
         @foods << Food.find(rank.food_id)
       end
     end
-    @answer = VasAnswer.new
     @question = VasQuestion.find(params[:order])
 
     if params[:order] != nil
