@@ -63,9 +63,9 @@
 <h5 style="font-size: 1.15em">Current or previous weight management practices (check all that apply) </h5>
   <%= f.check_box :weight_management_practices, {multiple: true}, "Diet" %> Diet (list any here): <%= f.text_field :weight_management_practices_other, :multiple => true %> <br>
   <%= f.check_box :weight_management_practices, {multiple: true}, "Restricting food or calories" %> Restricting food or calories<br>
-  <%= f.check_box :weight_management_practices, {multiple: true}, "Weight loss program" %> Weight loss program (list any here): <br>
+  <%= f.check_box :weight_management_practices, {multiple: true}, "Weight loss program" %> Weight loss program (list any here): <%= f.text_field :weight_management_practices_other, :multiple => true %><br>
   <%= f.check_box :weight_management_practices, {multiple: true}, "Recording/tracking food" %> Recording/tracking food <br>
-  <%= f.check_box :weight_management_practices, {multiple: true}, "Exercise to lose or maintain weight" %> Exercise to lose or maintain weight <%= f.text_field :weight_management_practices_other, :multiple => true %><br>
+  <%= f.check_box :weight_management_practices, {multiple: true}, "Exercise to lose or maintain weight" %> Exercise to lose or maintain weight <br>
   <%= f.check_box :weight_management_practices, {multiple: true}, "Other methods to lose or maintain weight" %> Other methods to lose or maintain weight (list any here): <%= f.text_field :weight_management_practices_other, :multiple => true %> <br>
 
 <div class="vert-space-sm"></div>
