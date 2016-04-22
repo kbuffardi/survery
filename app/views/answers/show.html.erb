@@ -1,0 +1,49 @@
+
+<h4> Questions Answered: <%= @answers.size %></h3>
+<%= link_to "Back", :back %>
+<div class="vert-space-sm"></div>
+</tr>
+<div class="panel panel-default">
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>
+          VAS Values
+        </th>
+        <th>
+          Food IDs
+        </th>
+        <th>
+          Question Number
+        </th>
+        <th>
+          User Email
+        </th>
+        <th>
+          Survey ID
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @answers.each do |question| %>
+        <tr>
+          <td>
+            <%= question.vas_values %>
+          </td>
+          <td>
+            <%= question.food_ids %>
+          </td>
+          <td>
+            <%= question.question_ids.first %>
+          </td>
+          <td>
+            <%= User.find(question.user_ids.first).email %>
+          </td>
+          <td>
+            <%= question.survey_ids.first %>
+          </td>
+      </tr>
+        <% end %>
+    </tbody>
+  </table>
+</div>

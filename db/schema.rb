@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160421233629) do
+ActiveRecord::Schema.define(version: 20160422090139) do
 
   create_table "answers", force: true do |t|
     t.datetime "created_at"
@@ -34,13 +34,16 @@ ActiveRecord::Schema.define(version: 20160421233629) do
     t.integer "age"
     t.string  "gender"
     t.string  "ethnicity"
-    t.integer "height_in_inches"
-    t.integer "weight"
     t.string  "alcohol_consumption"
     t.string  "weight_management_practices"
     t.string  "medical_conditions"
     t.boolean "raffle"
     t.integer "survey_id"
+    t.string  "weight_management_practices_other", default: ""
+    t.string  "medical_conditions_other"
+    t.string  "ethnicity_other"
+    t.string  "height"
+    t.string  "weight"
   end
 
   create_table "food_ranks", force: true do |t|

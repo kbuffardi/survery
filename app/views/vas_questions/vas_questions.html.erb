@@ -14,7 +14,7 @@
 
 <% @foods.each do |food| %>
 
-  <h4 class="col-md-offset-1 col-md-10" style="font-size: 1.15em; line-height: 1.6em; clear: both;"><%= @question.prompt_left %><strong><span style="font-size: 1.1em"><%= food.name %></span></strong><%= @question.prompt_right %><% if @q_num == 2 %> &nbsp;_____&nbsp; <%= food.unit %><% end %></h4>
+  <h4 class="col-md-offset-1 col-md-10" style="font-size: 1.15em; line-height: 1.6em; clear: both;"><%= @question.prompt_left %><strong><span style="font-size: 1.08em"><%= food.name %></span></strong><% if @q_num == 14 %> or eating less <%= food.name %><% end %><%= @question.prompt_right %><% if @q_num == 2 %> &nbsp;_____&nbsp; <%= food.unit %><% end %></h4>
 
     <center><div class="slider-fill">
 
@@ -36,23 +36,23 @@
                                                               <% elsif @q_num == 4 || @q_num == 21 %> Agree
                                                               <% else %>                              Never
                                                               <% end %></div>
-      <div class="slider-ticks-text" id="slider-tick-text2">  <% if @q_num == 2 %>                    1/2
+      <div class="slider-ticks-text" id="slider-tick-text2">  <% if @q_num == 2 %>                    1/4
                                                               <% elsif @q_num == 4 || @q_num == 21 %>
                                                               <% else %>                              Once a year
                                                               <% end %> </div>
-      <div class="slider-ticks-text" id="slider-tick-text3">  <% if @q_num == 2 %>                    3/4
+      <div class="slider-ticks-text" id="slider-tick-text3">  <% if @q_num == 2 %>                    1/2
                                                               <% elsif @q_num == 4 || @q_num == 21 %>
                                                               <% else %>                              Once a month
                                                               <% end %></div>
-      <div class="slider-ticks-text" id="slider-tick-text4">  <% if @q_num == 2 %>                    1
+      <div class="slider-ticks-text" id="slider-tick-text4">  <% if @q_num == 2 %>                    3/4
                                                               <% elsif @q_num == 4 || @q_num == 21 %>
                                                               <% else %>                              Once a week
                                                               <% end %></div>
-      <div class="slider-ticks-text" id="slider-tick-text5">  <% if @q_num == 2 %>                    More than one
+      <div class="slider-ticks-text" id="slider-tick-text5">  <% if @q_num == 2 %>                    1
                                                               <% elsif @q_num == 4 || @q_num == 21 %>
                                                               <% else %>                              Once a day
                                                               <% end %></div>
-      <div class="slider-ticks-text" id="slider-tick-text6">  <% if @q_num == 2 %>
+      <div class="slider-ticks-text" id="slider-tick-text6">  <% if @q_num == 2 %>                    More than one
                                                               <% elsif @q_num == 4 || @q_num == 21 %> Disagree
                                                               <% else %>                              More than once a day
                                                               <% end %></div>
@@ -69,6 +69,7 @@
   <% end %>
 
 <div class="vert-space-lg"> </div>
+
 
 <script>
 $('.not-clicked').click(function(e) {

@@ -2,6 +2,9 @@ class VasQuestionsController < ApplicationController
   before_filter :authenticate_user!
 
   def vas_questions
+    @display = Answer.all
+
+
     @answer = Answer.new
     @vas_answers = VasAnswer.new
     @questions = VasQuestion.all

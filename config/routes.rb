@@ -16,27 +16,22 @@ Rails.application.routes.draw do
   resources :categories
   resources :foods
   resources :surveys
-
-  get    "survey_category_selection" => "pages#survey_category_selection"
-  get    "survey_food_selection"     => "pages#survey_food_selection"
-
-  get    "vas_questions/:order" => "vas_questions#vas_questions", as: :vas_questions
-  patch  "vas_questions/:order" => "vas_answers#update", as: :update_answers
-
-  post  "vas_questions/:order" => "answers#create", as: :answers
-
-
-  get "demographics" => "demographics#demographics"
-  post "demographics" => "demographics#thank_you"
-  get "thank_you" => "demographics#thank_you"
-
-
   resources :food_ranks, except: [:index, :create, :update] do
     post :update_row_order, on: :collection
   end
 
-  post   "food_ranks" => "food_ranks#create",       as: :create_food_rank
-  get    "food_ranks" => "food_ranks#food_ranking", as: :food_ranks
-  patch  "food_ranks" => "food_ranks#update_rank",  as: :update_rank
-
+  get    "survey_category_selection" => "pages#survey_category_selection"
+  get    "survey_food_selection"     => "pages#survey_food_selection"
+  get    "vas_questions/:order"      => "vas_questions#vas_questions", as: :vas_questions
+  patch  "vas_questions/:order"      => "vas_answers#update", as: :update_answers
+  post   "vas_questions/:order"      => "answers#create", as: :answers
+  get    "demographics"              => "demographics#demographics"
+  post   "demographics"              => "demographics#create"
+  get    "thank_you"                 => "demographics#thank_you"
+  post   "food_ranks"                => "food_ranks#create",       as: :create_food_rank
+  get    "food_ranks"                => "food_ranks#food_ranking", as: :food_ranks
+  patch  "food_ranks"                => "food_ranks#update_rank",  as: :update_rank
+  get    "results"                   => "answers#show"
+  get    "users"                     => "answers#users"
+  get    "demographic_info"          => "answers#demographic_info"
 end
