@@ -11,16 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160422090139) do
+ActiveRecord::Schema.define(version: 20160422134955) do
 
   create_table "answers", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "user_ids",     default: "--- []\n"
-    t.string   "question_ids", default: "--- []\n"
-    t.string   "survey_ids",   default: "--- []\n"
-    t.string   "vas_values",   default: "--- []\n"
-    t.string   "food_ids",     default: "--- []\n"
+    t.text     "user_ids",     default: "--- []\n"
+    t.text     "question_ids", default: "--- []\n"
+    t.text     "survey_ids",   default: "--- []\n"
+    t.text     "vas_values",   default: "--- []\n"
+    t.text     "food_ids",     default: "--- []\n"
   end
 
   create_table "categories", force: true do |t|
