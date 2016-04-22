@@ -3,6 +3,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def create
     super
+    if UserMailer.welcome_email(current_user).deliver
+      flash.alert = "Mail sent"
+    end
   end
 
   def new

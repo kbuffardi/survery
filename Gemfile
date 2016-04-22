@@ -25,6 +25,7 @@ gem "select2-rails"
 gem 'autoprefixer-rails'
 gem 'ranked-model'
 gem 'jquery-ui-rails'
+gem 'figaro'
 
 group :production do
   gem 'rails_12factor'
