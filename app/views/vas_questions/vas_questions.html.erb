@@ -6,7 +6,7 @@
 
 <div class="vert-space-sm"> </div>
 
-<center><h3>For each of the following questions, please choose any point on the line </h3></center>
+<center><h3>For each of the following questions, please click and slide/drag anywhere on the line </h3></center>
 
 <div class="vert-space-lg"> </div>
 
@@ -14,7 +14,7 @@
 
 <% @foods.each do |food| %>
 
-  <h4 class="col-md-offset-1 col-md-10" style="font-size: 1.15em; line-height: 1.6em; clear: both;"><%= @question.prompt_left %><strong><span style="font-size: 1.08em"><%= food.name %></span></strong><% if @q_num == 14 %> or eating less <%= food.name %><% end %><%= @question.prompt_right %><% if @q_num == 2 %> &nbsp;_____&nbsp; <%= food.unit %><% end %></h4>
+  <h4 class="col-md-offset-1 col-md-10" style="font-size: 1.15em; line-height: 1.6em; clear: both;"><%= @question.prompt_left %><strong><span style="font-size: 1.1em"><%= food.name %></span></strong><% if @q_num == 14 %> or eating less <%= food.name %><% end %><%= @question.prompt_right %><% if @q_num == 2 %> &nbsp;_____&nbsp; <%= food.unit %><% end %></h4>
 
     <center><div class="slider-fill">
 
@@ -64,7 +64,9 @@
     <% end %>
 <div class="vert-space-sm"> </div>
 
-      <%= f.submit 'Next', :class => 'col-md-offset-9 btn btn-primary btn-surv', :disabled => true %>
+      <% if @q_num == 1 %> <div class="col-md-offset-1 col-md-6 isa_warning" style="margin-top: 0px;"> <div class="fa fa-info-circle"> </div>
+        <i>Pressing the <b>Back</b> button in your browser on this page may cause an error (cannot re-pick) and you may have to start over by making a new account.</i></div> <%= f.submit 'Next', :class => 'col-md-offset-2 btn-lg btn btn-primary btn-surv', :disabled => true %>
+      <% end %>
 
   <% end %>
 

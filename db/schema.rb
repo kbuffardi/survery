@@ -38,12 +38,12 @@ ActiveRecord::Schema.define(version: 20160422134955) do
     t.string  "ethnicity_other"
     t.string  "height"
     t.string  "weight"
-    t.text    "ethnicity",                         default: ""
-    t.text    "alcohol_consumption",               default: ""
-    t.text    "weight_management_practices",       default: ""
-    t.text    "medical_conditions",                default: ""
-    t.text    "weight_management_practices_other", default: ""
-    t.text    "medical_conditions_other",          default: ""
+    t.text    "weight_management_practices",       default: "--- []\n"
+    t.text    "medical_conditions",                default: "--- []\n"
+    t.text    "medical_conditions_other",          default: "--- []\n"
+    t.text    "weight_management_practices_other"
+    t.integer "alcohol_consumption"
+    t.integer "ethnicity"
   end
 
   create_table "food_ranks", force: true do |t|

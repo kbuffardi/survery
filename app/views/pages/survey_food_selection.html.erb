@@ -3,20 +3,23 @@
     <span class="progress-text">10% Complete</span>
   </div>
 </div>
-
-<h3>Which of these foods do you feel are problematic for you? &nbsp;<span style="font-size: 14px; font-style: italic">(mark at least 1)</span></h3>
-
-<hr>
-
-<div class="selections col-md-offset-1 checkbox checkbox-primary">
+<div class="vert-space-sm"></div>
+<h2 style="font-size: 28px">Which of these <b>foods</b> do you feel are problematic for you? &nbsp;<span style="font-size: 16px; font-style: italic">(mark at least 1)</span></h2>
+<div class="vert-space-sm"> </div>
+<div class="vert-space-sm"> </div>
+<div class="col-md-offset-1" style="font-size: 1.15em">
+  <i style="margin-left: 14px">Problematic foods frequently contain higher amounts of fat and sugar and can lead to overeating.</i>
+</p>
+<div class="vert-space-sm"> </div>
+<div class="selections checkbox checkbox-primary" style="font-size: 1.05em;">
 <%= form_for @survey do |f| %>
 	<% @categories.each do |category| %>
-		<h4 style="margin-bottom: 15px; margin-left: -5px"><strong><%= category.name %></strong></h4>
+		<h4 style="margin-bottom: 15px; margin-left: -5px"><strong style="font-size: 1.1em"><%= category.name %></strong></h4>
 <div style="margin-left: 16px">
 		<%= f.collection_check_boxes :food_ids, category.foods.all, :id, :name, {}, :multiple => true %><br>
     </div>
 	<% end %>
-	<%= f.submit 'Next', :class => "col-md-offset-8 btn btn-primary btn-surv" %>
+	<%= f.submit 'Next', :class => "col-md-offset-8 btn btn-lg btn-primary btn-surv" %>
 
 <% end %>
 </div>

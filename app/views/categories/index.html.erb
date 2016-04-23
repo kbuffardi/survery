@@ -7,174 +7,46 @@
 
 <div class="vert-space-sm"> </div>
 
-<center><h3 style="font-size: 2em">Please read through the following food categories and foods</h3><br></center>
+<center><h2>Please read through the following food categories and foods</h2><br></center>
 
 <div class="vert-space-lg"></div>
 
-<div class="col-md-3">
-  <div style="font-size: 1.3em; margin-bottom: 8px; font-weight: bold"><%= Category.find(4).name %></div>
+
+<div class="panel panel-default" style="max-width: 100%; min-width: 790px">
+  <table class="table table-bordered table-striped" id="sortable">
+    <col style="width: 24%;">
+    <thead>
+      <tr>
+        <th style="font-size: 1.6em; padding: 16px; padding-left: 1.1em">
+          Food Categories
+        </th>
+        <th style="font-size: 1.6em; padding: 16px; padding-left: 1.1em">
+          Example Foods in Each Category
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @categories.each do |category| %>
+        <tr>
+          <td style="font-size: 1.4em; padding: 13px; padding-left: 1.5em">
+            <%= category.name %>
+          </td>
+          <td style="font-size: 1.15em; padding: 13px; padding-left: 1.5em">
+            <% category.foods.each_with_index do |food, i| %>
+              <%= food.name %><% if i + 1 != category.foods.length %>, <% end %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
-<div class="col-md-3">
-  <div style="font-size: 1.3em; margin-bottom: 8px; font-weight: bold"><%= Category.find(9).name %></div>
-</div>
-<div class="col-md-3">
-  <div style="font-size: 1.3em; margin-bottom: 8px; font-weight: bold"><%= Category.find(3).name %></div>
-</div>
-<div class="col-md-3">
-  <div style="font-size: 1.3em; margin-bottom: 8px; font-weight: bold"><%= Category.find(11).name %></div>
-</div>
-<div class="col-md-3">
-  <div style="font-size: 1.3em; margin-bottom: 8px; font-weight: bold"><%= Category.find(1).name %></div>
-</div>
-<div class="col-md-3">
-  <div style="font-size: 1.3em; margin-bottom: 8px; font-weight: bold"><%= Category.find(5).name %></div>
-</div>
-<div class="col-md-3">
-  <div style="font-size: 1.3em; margin-bottom: 8px; font-weight: bold"><%= Category.find(6).name %></div>
-</div>
-<div class="col-md-3">
-  <div style="font-size: 1.3em; margin-bottom: 8px; font-weight: bold"><%= Category.find(8).name %></div>
-</div>
-<div class="col-md-3">
-  <div style="font-size: 1.3em; margin-bottom: 8px; font-weight: bold"><%= Category.find(12).name %></div>
-</div>
-<div class="col-md-3">
-  <div style="font-size: 1.3em; margin-bottom: 8px; font-weight: bold"><%= Category.find(10).name %></div>
-</div>
-<div class="col-md-3">
-  <div style="font-size: 1.3em; margin-bottom: 8px; font-weight: bold"><%= Category.find(7).name %></div>
-</div>
-<div class="col-md-3">
-  <div style="font-size: 1.3em; margin-bottom: 8px; font-weight: bold"><%= Category.find(2).name %></div>
-</div>
+
 
 <div class="vert-space-lg"></div>
 
-<div class="col-md-7 col-md-offset-1">
-  <h4><strong><%= Category.find(4).name %></strong></h4>
 
-  <% Category.find(4).foods.each do |food| %>
-  <div class="col-md-offset-1">
-    <%= food.name %>
-  </div>
-  <% end %>
-</div>
-
-<div class="col-md-4">
-  <h4><strong><%= Category.find(9).name %></strong></h4>
-
-  <% Category.find(9).foods.each do |food| %>
-  <div class="col-md-offset-2" >
-    <%= food.name %>
-  </div>
-  <% end %>
-</div>
-
-<div class="vert-space-sm"></div>
-<div class="col-md-7 col-md-offset-1">
-  <h4><strong><%= Category.find(3).name %></strong></h4>
-
-  <% Category.find(3).foods.each do |food| %>
-  <div class="col-md-offset-1" >
-    <%= food.name %>
-  </div>
-  <% end %>
-</div>
-
-<div class="col-md-4">
-  <h4><strong><%= Category.find(11).name %></strong></h4>
-
-  <% Category.find(11).foods.each do |food| %>
-  <div class="col-md-offset-2" >
-    <%= food.name %>
-  </div>
-  <% end %>
-</div>
-
-<div class="vert-space-sm"></div>
-<div class="col-md-7 col-md-offset-1">
-  <h4><strong><%= Category.find(1).name %></strong></h4>
-
-  <% Category.find(1).foods.each do |food| %>
-  <div class="col-md-offset-1" >
-    <%= food.name %>
-  </div>
-  <% end %>
-</div>
-
-<div class="col-md-4">
-  <h4><strong><%= Category.find(5).name %></strong></h4>
-
-  <% Category.find(5).foods.each do |food| %>
-  <div class="col-md-offset-2" >
-    <%= food.name %>
-  </div>
-  <% end %>
-</div>
-
-<div class="vert-space-sm"></div>
-
-<div class="col-md-7 col-md-offset-1">
-  <h4><strong><%= Category.find(6).name %></strong></h4>
-  <% Category.find(6).foods.each do |food| %>
-  <div class="col-md-offset-1" >
-    <%= food.name %>
-  </div>
-  <% end %>
-</div>
-
-<div class="col-md-4">
-  <h4><strong><%= Category.find(8).name %></strong></h4>
-  <% Category.find(8).foods.each do |food| %>
-  <div class="col-md-offset-2" >
-    <%= food.name %>
-  </div>
-  <% end %>
-</div>
-
-<div class="vert-space-sm"></div>
-
-<div class="col-md-7 col-md-offset-1">
-  <h4><strong><%= Category.find(12).name %></strong></h4>
-  <% Category.find(12).foods.each do |food| %>
-  <div class="col-md-offset-1" >
-    <%= food.name %>
-  </div>
-  <% end %>
-</div>
-
-<div class="col-md-4">
-  <h4><strong><%= Category.find(10).name %></strong></h4>
-  <% Category.find(10).foods.each do |food| %>
-  <div class="col-md-offset-2" >
-    <%= food.name %>
-  </div>
-  <% end %>
-</div>
-
-<div class="vert-space-sm"></div>
-
-<div class="col-md-7 col-md-offset-1">
-  <h4><strong><%= Category.find(7).name %></strong></h4>
-  <% Category.find(7).foods.each do |food| %>
-  <div class="col-md-offset-1" >
-    <%= food.name %>
-  </div>
-  <% end %>
-</div>
-
-<div class="col-md-4">
-  <h4><strong><%= Category.find(2).name %></strong></h4>
-  <% Category.find(2).foods.each do |food| %>
-  <div class="col-md-offset-2" >
-    <%= food.name %>
-  </div>
-  <% end %>
-</div>
-<div class="vert-space-sm"></div>
-
-
-<%= button_to "Start Survey", survey_category_selection_path, class: "col-md-offset-9 btn btn-primary btn-surv", method: :get %>
+<%= button_to "Start Survey", survey_category_selection_path, class: "col-md-offset-9 btn-lg btn-primary btn-surv", method: :get %>
 
 
 <!-- FOR DYNAMIC PAGE

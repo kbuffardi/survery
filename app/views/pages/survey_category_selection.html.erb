@@ -4,21 +4,23 @@
     <span class="progress-text">5% Complete</span>
   </div>
 </div>
+<div class="vert-space-sm"> </div>
+<h2 style="font-size: 28px">Which of these <b>food categories</b> do you feel are problematic for you? &nbsp;<span style="font-size: 16px; font-style: italic;"> (mark at least 1)</span></h2>
+<div class="vert-space-sm"> </div>
+<div class="vert-space-sm"> </div>
+  <div class="col-md-offset-1" style="font-size: 1.15em">
+    <i>Problematic foods frequently contain higher amounts of fat and sugar and can lead to overeating.</i>
+  </div>
+<div class="vert-space-sm"> </div>
 
-<h3>Which of these food Categories do you feel are problematic for you? &nbsp;<span style="font-size: 14px; font-style: italic;"> (mark at least 1)</span></h3>
 
-<hr>
-
-
-
-
-<div class="selections col-md-offset-1 checkbox checkbox-primary" style="font-size: 1.1em">
+<div class="selections col-md-offset-1 checkbox checkbox-primary" style="font-size: 1.2em;">
 <%= form_for @survey do |f| %>
 	<%= f.hidden_field :user_id, :value => current_user.id %>
 	<%= f.collection_check_boxes :category_ids, Category.all, :id, :name, {:item_wrapper_class => 'checkbox'}, :multiple => true %><br>
 </div>
 
 <hr>
-	<%= f.submit 'Next', :class => "col-md-offset-8 btn btn-primary btn-surv" %>
+	<%= f.submit 'Next', :class => "col-md-offset-8 btn btn-lg btn-primary btn-surv" %>
 <% end %>
 </div>

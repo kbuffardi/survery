@@ -3,34 +3,35 @@
     <span class="progress-text">15% Complete</span>
   </div>
 </div>
-
-<h3 style="white-space: nowrap">Rank the selected foods from most to least problematic </h3>
-
+<div class="vert-space-sm"></div>
+<h2 style="font-size: 28px; white-space: nowrap">Rank the selected foods from most to least problematic </h2>
+<div class="vert-space-sm"></div>
 <div class="vert-space-sm"></div>
 
-<div style="white-space: nowrap; font-size: 1.1em">Click and drag rows to arrange in the proper order</div>
+<div style="white-space: nowrap; font-size: 1.15em"><i>Click and drag rows to rank foods from most to least problematic</i></div>
 
-<div class="vert-space-sm"></div>
+<div class="vert-space-sm" style="height: 2em"></div>
 <div class="vert-space-sm"></div>
 
 <% @food_ranks.each_with_index do |food, i| %>
-<div class="" style="position: absolute; top: <%= (37 * i) + 256 %>px; clear: left; display: block;
-            float: left; font-size: 1.35em; padding-top: 6px; height: 37px; width: 55px; text-align: center">
+<div class="" style="position: absolute; top: <%= (38 * i) + 328 %>px; clear: left; display: block;
+            float: left; font-size: 1.45em; padding-top: 6px; height: 38px; width: 66px; text-align: center">
 <%= i + 1 %>
-
+  <% @i = i %>
 </div>
 <% end %>
 
-<div class="panel panel-default" style="max-width: 470px; min-width: 420px">
+<div class="panel panel-default" style="max-width: 670px; min-width: 520px">
   <table class="table table-bordered table-striped" id="sortable">
     <col style="width: 10%">
     <thead>
       <tr>
-        <th>
-          Rank
+        <th style="font-size: 1.2em">
+          <center>Rank</center>
         </th>
-        <th>
-          Food
+        <th style="padding-left: .8em; font-size: 1.2em">
+          Food <div style="opacity: .8; pointer-events: none; position: relative; top: 39px; font-weight: normal; float: right; margin-right: 8%"><i style="font-size: .9em">Most Problematic </i> </div><div style="opacity: .8; pointer-events: none; height: 0; position: relative; top: <%= (38 * @i) + 16 %>px; font-weight: normal; float: right; clear: right; margin-right: 8%">
+            <i style="font-size: .9em">Least Problematic </i> </div>
         </th>
       </tr>
     </thead>
@@ -39,19 +40,19 @@
         <tr data-item-id=<%= "#{food_rank.id}" %> class="item">
           <td style="font-size: 1.2em; text-align: center">
           </td>
-          <td style="cursor: move">
+          <td style="padding-left: .8em; cursor: move; font-size: 1.1em">
 
-          <div><%= Food.find(food_rank.food_id).name %></div>
-
+          <div class="grip" style=" float: left; width: 85%;"><% @string = Food.find(food_rank.food_id).name %><%= @string.slice(0,1).capitalize + @string.slice(1..-1) %></div>
+          <span class="grippy" </span>
           </td>
         </tr>
       <% end %>
     </tbody>
   </table>
 </div>
-
-
-<%= button_to "Next", update_rank_path, class: "col-md-offset-8 btn btn-primary btn-surv", method: :patch %>
-
+<div class="vert-space-lg"></div>
+<div class="vert-space-sm"></div>
+<%= button_to "Next", update_rank_path, class: "col-md-offset-8 btn-lg btn-primary btn-surv", method: :patch %>
+<div class="vert-space-lg"></div>
 <!--  Food.find(food_rank.food_id).name
 -->

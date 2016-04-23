@@ -1,6 +1,6 @@
 <div class="progress">
   <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
-    <span class="progress-text" style="font-size: 13.5px">100% Complete</span>
+    <span class="progress-text" style="font-size: 14px">100% Complete</span>
   </div>
 </div>
 
@@ -30,21 +30,23 @@
   <%= f.radio_button :gender, 1  %> Female <br>
   <%= f.radio_button :gender, 2  %> Male <br>
   <%= f.radio_button :gender, 3  %> Other <br>
+  <%= f.radio_button :gender, 4  %> Do not wish to specify <br>
 
 <div class="vert-space-sm"></div>
 
 <h5 style="font-size: 1.15em">Race/ethnicity </h5>
-  <%= f.check_box :ethnicity, {multiple: true}, "Asian" %> Asian<br>
-  <%= f.check_box :ethnicity, {multiple: true}, "African American" %> African American <br>
-  <%= f.check_box :ethnicity, {multiple: true}, "Hispanic" %> Hispanic<br>
-  <%= f.check_box :ethnicity, {multiple: true}, "Non-Hispanic White" %> Non-Hispanic White <br>
-  <%= f.check_box :ethnicity, {multiple: true}, "Native American" %> Native American <br>
-  Other: <%= f.text_field :ethnicity_other %> <br>
+  <%= f.radio_button  :ethnicity, {multiple: true}, 1 %> Asian<br>
+  <%= f.radio_button  :ethnicity, {multiple: true}, 2 %> African American <br>
+  <%= f.radio_button  :ethnicity, {multiple: true}, 3 %> Hispanic<br>
+  <%= f.radio_button  :ethnicity, {multiple: true}, 4 %> White <br>
+  <%= f.radio_button  :ethnicity, {multiple: true}, 5 %> Native American <br>
+  <%= f.radio_button  :ethnicity, {multiple: true}, 6 %> Other <br>
+  <%= f.radio_button  :ethnicity, {multiple: true}, 7 %> Multi-race/ethnicity: <%= f.text_field :ethnicity_other %> <br>
 
 
 <div class="vert-space-sm"></div>
 <h5 style="font-size: 1.15em">Height: </h5>
-  Feet, Inches: <%= f.text_field :height %>
+  Feet and inches: <%= f.text_field :height %>
 
 <div class="vert-space-sm"></div>
 <h5 style="font-size: 1.15em">Weight: </h5>
@@ -53,13 +55,13 @@
 <div class="vert-space-sm"></div>
 <h5 style="font-size: 1.15em">In any given week, how much alcohol do you consume?  </h5>
 <h5><i>Note: a “drink” is defined as : 12 oz beer, 4 oz wine and/or 1 oz  liquor</i></h5>
-  <%= f.check_box :alcohol_consumption, {multiple: true}, "None" %> None<br>
-  <%= f.check_box :alcohol_consumption, {multiple: true}, "1 - 4 drinks a week" %> 1 - 4 drinks a week<br>
-  <%= f.check_box :alcohol_consumption, {multiple: true}, "One drink a day" %> One drink a day<br>
-  <%= f.check_box :alcohol_consumption, {multiple: true}, "2-3 drinks per day" %> 2-3 drinks per day<br>
-  <%= f.check_box :alcohol_consumption, {multiple: true}, "More than 3 drinks per day" %> More than 3 drinks per day<br>
+  <%= f.radio_button :alcohol_consumption, {multiple: true}, 1 %> None<br>
+  <%= f.radio_button :alcohol_consumption, {multiple: true}, 2 %> 1 - 4 drinks a week<br>
+  <%= f.radio_button :alcohol_consumption, {multiple: true}, 3 %> One drink a day<br>
+  <%= f.radio_button :alcohol_consumption, {multiple: true}, 4 %> 2-3 drinks per day<br>
+  <%= f.radio_button :alcohol_consumption, {multiple: true}, 5 %> More than 3 drinks per day<br>
 
-<div class="vert-space-sm"></div>                                               <!-- this one is truely a disaster -->
+<div class="vert-space-sm"></div>
 <h5 style="font-size: 1.15em">Current or previous weight management practices (check all that apply) </h5>
   <%= f.check_box :weight_management_practices, {multiple: true}, "Diet" %> Diet (list any here): <%= f.text_field :weight_management_practices_other, :multiple => true %> <br>
   <%= f.check_box :weight_management_practices, {multiple: true}, "Restricting food or calories" %> Restricting food or calories<br>
@@ -87,7 +89,7 @@
 <div class="vert-space-lg"></div>
 
 
-<%= f.submit "End Survey", class: "btn btn-primary col-md-offset-8" %>
+<%= f.submit "End Survey", class: "btn-lg btn-primary col-md-offset-8" %>
 
 <% end %>
 
