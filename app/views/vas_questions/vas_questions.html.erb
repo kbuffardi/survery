@@ -65,8 +65,13 @@
 <div class="vert-space-sm"> </div>
 
       <% if @q_num == 1 %> <div class="col-md-offset-1 col-md-6 isa_warning" style="margin-top: 0px;"> <div class="fa fa-info-circle"> </div>
-        <i>Pressing the <b>Back</b> button in your browser on this page may cause an error (cannot re-pick) and you may have to start over by making a new account.</i></div> <%= f.submit 'Next', :class => 'col-md-offset-2 btn-lg btn btn-primary btn-surv', :disabled => true %>
-      <% end %>
+        <i>Pressing the <b>Back</b> button in your browser on this page may cause an error (cannot re-pick) and you may have to start over by making a new account.</i></div>
+        <% end %>
+<% if @q_num == 1 %>
+  <%= f.submit 'Next', :class => 'col-md-offset-2 btn-lg btn btn-primary btn-surv', :disabled => true %>
+<% else %>
+  <%= f.submit 'Next', :class => 'col-md-offset-9 btn-lg btn btn-primary btn-surv', :disabled => true %>
+<% end %>
 
   <% end %>
 

@@ -180,11 +180,11 @@ input[type=range]:focus::-ms-fill-upper {
 }
 .slider-ticks {
   position: relative;
-  bottom: 18px;
+  bottom: 19px;
   z-index: 1;
   float: left;
   width: 20%;
-  height: 8px;
+  height: 9px;
   display: inline;
   border-left: 2px solid rgb(210, 210, 210);
   pointer-events: none;

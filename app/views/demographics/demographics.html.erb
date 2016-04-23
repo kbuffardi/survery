@@ -35,13 +35,13 @@
 <div class="vert-space-sm"></div>
 
 <h5 style="font-size: 1.15em">Race/ethnicity </h5>
-  <%= f.radio_button  :ethnicity, {multiple: true}, 1 %> Asian<br>
-  <%= f.radio_button  :ethnicity, {multiple: true}, 2 %> African American <br>
-  <%= f.radio_button  :ethnicity, {multiple: true}, 3 %> Hispanic<br>
-  <%= f.radio_button  :ethnicity, {multiple: true}, 4 %> White <br>
-  <%= f.radio_button  :ethnicity, {multiple: true}, 5 %> Native American <br>
-  <%= f.radio_button  :ethnicity, {multiple: true}, 6 %> Other <br>
-  <%= f.radio_button  :ethnicity, {multiple: true}, 7 %> Multi-race/ethnicity: <%= f.text_field :ethnicity_other %> <br>
+  <%= f.radio_button  :ethnicity, 1 %> Asian<br>
+  <%= f.radio_button  :ethnicity, 2 %> African American <br>
+  <%= f.radio_button  :ethnicity, 3 %> Hispanic<br>
+  <%= f.radio_button  :ethnicity, 4 %> White <br>
+  <%= f.radio_button  :ethnicity, 5 %> Native American <br>
+  <%= f.radio_button  :ethnicity, 6 %> Other <br>
+  <%= f.radio_button  :ethnicity, 7 %> Multi-race/ethnicity: <%= f.text_field :ethnicity_other %> <br>
 
 
 <div class="vert-space-sm"></div>
@@ -55,11 +55,11 @@
 <div class="vert-space-sm"></div>
 <h5 style="font-size: 1.15em">In any given week, how much alcohol do you consume?  </h5>
 <h5><i>Note: a “drink” is defined as : 12 oz beer, 4 oz wine and/or 1 oz  liquor</i></h5>
-  <%= f.radio_button :alcohol_consumption, {multiple: true}, 1 %> None<br>
-  <%= f.radio_button :alcohol_consumption, {multiple: true}, 2 %> 1 - 4 drinks a week<br>
-  <%= f.radio_button :alcohol_consumption, {multiple: true}, 3 %> One drink a day<br>
-  <%= f.radio_button :alcohol_consumption, {multiple: true}, 4 %> 2-3 drinks per day<br>
-  <%= f.radio_button :alcohol_consumption, {multiple: true}, 5 %> More than 3 drinks per day<br>
+  <%= f.radio_button :alcohol_consumption, 1 %> None<br>
+  <%= f.radio_button :alcohol_consumption, 2 %> 1 - 4 drinks a week<br>
+  <%= f.radio_button :alcohol_consumption, 3 %> One drink a day<br>
+  <%= f.radio_button :alcohol_consumption, 4 %> 2-3 drinks per day<br>
+  <%= f.radio_button :alcohol_consumption, 5 %> More than 3 drinks per day<br>
 
 <div class="vert-space-sm"></div>
 <h5 style="font-size: 1.15em">Current or previous weight management practices (check all that apply) </h5>
