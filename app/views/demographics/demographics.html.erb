@@ -17,7 +17,7 @@
   <%= f.radio_button :eating_disorder, false %> No
 
 <div class="vert-space-sm"></div>
-<h5 style="font-size: 1.15em">Age (you must be 18-45 or of childbearing age to participate) </h5>
+<h5 style="font-size: 1.15em">Age (you must be 18-45 or of childbearing age to participate): </h5>
 
   <%= f.radio_button :age, 1 %> under 18 <br>
   <%= f.radio_button :age, 2  %> 18 - 27 <br>
@@ -34,7 +34,7 @@
 
 <div class="vert-space-sm"></div>
 
-<h5 style="font-size: 1.15em">Race/ethnicity </h5>
+<h5 style="font-size: 1.15em">Race/ethnicity: </h5>
   <%= f.radio_button  :ethnicity, 1 %> Asian<br>
   <%= f.radio_button  :ethnicity, 2 %> African American <br>
   <%= f.radio_button  :ethnicity, 3 %> Hispanic<br>
@@ -62,7 +62,7 @@
   <%= f.radio_button :alcohol_consumption, 5 %> More than 3 drinks per day<br>
 
 <div class="vert-space-sm"></div>
-<h5 style="font-size: 1.15em">Current or previous weight management practices (check all that apply) </h5>
+<h5 style="font-size: 1.15em">Current or previous weight management practices (check all that apply): </h5>
   <%= f.check_box :weight_management_practices, {multiple: true}, "Diet" %> Diet (list any here): <%= f.text_field :weight_management_practices_other, :multiple => true %> <br>
   <%= f.check_box :weight_management_practices, {multiple: true}, "Restricting food or calories" %> Restricting food or calories<br>
   <%= f.check_box :weight_management_practices, {multiple: true}, "Weight loss program" %> Weight loss program (list any here): <%= f.text_field :weight_management_practices_other, :multiple => true %><br>
@@ -89,7 +89,7 @@
 <div class="vert-space-lg"></div>
 
 
-<%= f.submit "End Survey", class: "btn-lg btn-primary col-md-offset-8" %>
+<%= f.submit "End Survey", class: "btn btn-lg btn-primary col-md-offset-8" %>
 
 <% end %>
 

@@ -64,7 +64,7 @@ Food.create(category_id: 6, unit: "tablespoon(s)", name: "ketchup")
 Food.create(category_id: 6, unit: "tablespoon(s)", name: "mustard")
 
 Food.create(category_id: 7, unit: "container(s)", name: "ice cream")
-Food.create(category_id: 7, unit: "bar(s)", name: "ice cream bar")
+Food.create(category_id: 7, unit: "# of bar(s)", name: "ice cream bars")
 Food.create(category_id: 7, unit: "slice(s)", name: "cake")
 Food.create(category_id: 7, unit: "# of cupcake(s)", name: "cupcakes")
 Food.create(category_id: 7, unit: "# of brownie(s)", name: "brownies")
