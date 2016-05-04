@@ -18,7 +18,7 @@ before_filter :authenticate_user!
     @survey = current_user.survey
     @demographic = Demographic.new(demographic_params)
     if @demographic.save
-      redirect_to survey_two_path
+      redirect_to thank_you_path
     else
       flash.alert "There was an error, please contact lcramer3@mail.csuchico with the page URL for assistance. Thank you."
     end
