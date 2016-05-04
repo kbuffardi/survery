@@ -131,7 +131,7 @@ input[type=range]:focus::-ms-fill-upper {
   width: 5px;
   border-radius: 4px;
   background: rgb(47, 113, 169);
-  cursor: pointer;
+  cursor: ew-resize;
   margin-top: -15px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
   box-shadow: 0px 0px 0px #fff, 0px 0px 0px #fff; /* Add cool effects to your sliders! */
 }
@@ -151,7 +151,7 @@ input[type=range]:focus::-ms-fill-upper {
   width: 1px;
   border-radius: 4px;
   background: rgb(47, 113, 169);
-  cursor: pointer;
+  cursor: ew-resize;
   margin: 5px
 }
 
