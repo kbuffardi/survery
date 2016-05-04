@@ -17,8 +17,7 @@
   <h4 class="col-md-offset-1 col-md-10" style="font-size: 1.15em; line-height: 1.6em; clear: both;">
   <%= @question.prompt_left %><strong><span style="font-size: 1.1em"><%= food.name %></span></strong><% if @q_num == 14 %>
                                                                                                        or eating less <%= food.name %>
-                                                                                                      <% elsif @q_num == 3 || @q_num == 5 || @q_num == 15 %>
-                                                                                                        I eat <%= food.name %>
+                                                                                                      <% elsif @q_num == 3 || @q_num == 5 || @q_num == 15 %>, I eat <%= food.name %>
                                                                                                       <% elsif @q_num == 10 %>, I will go out of my way to get <%= food.name %> <!-- do not format, becuase of html space for "," -->
                                                                                                       <% elsif @q_num == 16 %>, I have eaten <%= food.name %>
                                                                                                       <% elsif @q_num == 20 %>, I need to increase how much <%= food.name %>

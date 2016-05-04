@@ -32,7 +32,7 @@ before_filter :authenticate_user!
 
 private
   def demographic_params
-    params.require(:demographic).permit( :eating_disorder, :ethnicity, :ethnicity_other, :age, :gender, :survey_id, :height, :weight, :raffle, :alcohol_consumption,
+    params.require(:demographic).permit( :work, :income, :eating_disorder, :ethnicity, :ethnicity_other, :age, :gender, :survey_id, :height, :weight, :raffle, :alcohol_consumption,
                                     weight_management_practices: [], weight_management_practices_other: [],medical_conditions: [], medical_conditions_other:[] )
   end
 
