@@ -68,8 +68,8 @@
 
 <div class="vert-space-sm"></div>
 <h5 style="font-size: 1.15em">Height: </h5>
-<%= f.select :height, [['4'], ['7']] %>
-<%= f.collection_select :search, Category.all, :id, :name, { prompt: "Inches", :selected => params[:search], hide_label: :true }, class: "input-sm" %>
+<%= f.select :height_feet, [['4'], ['5'], ['6'], ['7']], {prompt: 'Feet'} %>
+<%= f.select :height_inches, [['0'], ['1'], ['2'], ['3'],['4'], ['5'], ['6'], ['7'], ['8'], ['9'], ['10'], ['11']], {prompt: 'Inches'} %>
 
 <div class="vert-space-sm"></div>
 <h5 style="font-size: 1.15em">Weight: </h5>

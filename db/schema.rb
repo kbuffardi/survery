@@ -45,7 +45,8 @@ ActiveRecord::Schema.define(version: 20160504102751) do
     t.integer "ethnicity"
     t.integer "work"
     t.integer "income"
-    t.string  "height"
+    t.string  "height_feet"
+    t.string  "height_inches"
   end
 
   create_table "food_ranks", force: true do |t|
