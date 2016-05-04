@@ -35,4 +35,6 @@ Rails.application.routes.draw do
   get    "users"                     => "answers#users"
   get    "demographic_info"          => "answers#demographic_info"
   get    "info"                      => "pages#info"
+  get    "survey_two"                => "demographics#survey_two"
+  get    "survey_three"              => "demographics#survey_three"
 end

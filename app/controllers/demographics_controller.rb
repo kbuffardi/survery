@@ -18,10 +18,16 @@ before_filter :authenticate_user!
     @survey = current_user.survey
     @demographic = Demographic.new(demographic_params)
     if @demographic.save
-      redirect_to thank_you_path
+      redirect_to survey_two_path
     else
       flash.alert "There was an error, please contact lcramer3@mail.csuchico with the page URL for assistance. Thank you."
     end
+  end
+
+  def survey_two
+  end
+
+  def survey_three
   end
 
 private
@@ -29,4 +35,5 @@ private
     params.require(:demographic).permit( :eating_disorder, :ethnicity, :ethnicity_other, :age, :gender, :survey_id, :height, :weight, :raffle, :alcohol_consumption,
                                     weight_management_practices: [], weight_management_practices_other: [],medical_conditions: [], medical_conditions_other:[] )
   end
+
 end

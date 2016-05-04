@@ -3,8 +3,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def create
     super
-    if UserMailer.welcome_email(current_user).deliver
-    end
+  #  if UserMailer.welcome_email(current_user).deliver
+  #  end
   end
 
   def new

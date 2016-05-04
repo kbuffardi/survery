@@ -1,6 +1,6 @@
 <div class="progress">
-  <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
-    <span class="progress-text" style="font-size: 14px">100% Complete</span>
+  <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="90" style="width: 90%">
+    <span class="progress-text">85% Complete</span>
   </div>
 </div>
 
@@ -23,7 +23,9 @@
   <%= f.radio_button :age, 2  %> 18 - 27 <br>
   <%= f.radio_button :age, 3  %> 28 - 37 <br>
   <%= f.radio_button :age, 4  %> 38 - 45 <br>
-  <%= f.radio_button :age, 4  %> over 45 <br>
+  <%= f.radio_button :age, 4  %> 46 - 53 <br>
+  <%= f.radio_button :age, 4  %> 54 - 61 <br>
+  <%= f.radio_button :age, 4  %> over 62 <br>
 
 <div class="vert-space-sm"></div>
 <h5 style="font-size: 1.15em">Gender: </h5>
@@ -42,6 +44,26 @@
   <%= f.radio_button  :ethnicity, 5 %> Native American <br>
   <%= f.radio_button  :ethnicity, 6 %> Other <br>
   <%= f.radio_button  :ethnicity, 7 %> Multi-race/ethnicity: <%= f.text_field :ethnicity_other %> <br>
+
+  <div class="vert-space-sm"></div>
+  <h5 style="font-size: 1.15em">Are you currently...? </h5>
+    <%= f.radio_button :work, 1 %> Employed for wages<br>
+    <%= f.radio_button :work, 2 %> Self-employed<br>
+    <%= f.radio_button :work, 3 %> Out of work and loooking for work<br>
+    <%= f.radio_button :work, 4 %> Out of work but not currently looking for work<br>
+    <%= f.radio_button :work, 5 %> A homemaker<br>
+    <%= f.radio_button :work, 6 %> A student<br>
+    <%= f.radio_button :work, 7 %> Retired<br>
+    <%= f.radio_button :work, 8 %> Unable to work<br>
+
+    <div class="vert-space-sm"></div>
+    <h5 style="font-size: 1.15em">What is your total household income? </h5>
+      <%= f.radio_button :income, 1 %> Less than $20,000<br>
+      <%= f.radio_button :income, 2 %> $20,000 to $34,999<br>
+      <%= f.radio_button :income, 3 %> $35,000 to $49,999<br>
+      <%= f.radio_button :income, 4 %> $50,000 to $74,999<br>
+      <%= f.radio_button :income, 5 %> $75,000 to $99,999<br>
+      <%= f.radio_button :income, 5 %> $100,000 or more<br>
 
 
 <div class="vert-space-sm"></div>
@@ -77,7 +99,10 @@
   <%= f.check_box :medical_conditions, {multiple: true}, "High Total Cholesterol, LDL or triglycerides" %> High Total Cholesterol, LDL or triglycerides <br>
   <%= f.check_box :medical_conditions, {multiple: true}, "Fatty liver disease" %> Fatty liver disease <br>
   <%= f.check_box :medical_conditions, {multiple: true}, "Sleep apnea" %> Sleep apnea <br>
-  <%= f.check_box :medical_conditions, {multiple: true}, "Other problems related to being overweight or obease" %> Other problems related to being overweight or obease: <%= f.text_field :medical_conditions_other %> <br>
+  <%= f.check_box :medical_conditions, {multiple: true}, "Polycystic ovary syndrome" %> Polycystic ovary syndrome <br>
+  <%= f.check_box :medical_conditions, {multiple: true}, "Thyroid problems" %> Thyroid problems <br>
+  <%= f.check_box :medical_conditions, {multiple: true}, "Other problems related to being overweight or obese" %> Other problems related to being overweight or obese: <%= f.text_field :medical_conditions_other %> <br>
+  <%= f.check_box :medical_conditions, {multiple: true}, "None of the above" %> None of the above <br>
 
   <div class="vert-space-sm"></div>
   <h5 style="font-size: 1.15em">Do you want to recieve a $15 gift card? </h5>
@@ -89,7 +114,7 @@
 <div class="vert-space-lg"></div>
 
 
-<%= f.submit "End Survey", class: "btn btn-lg btn-primary col-md-offset-8" %>
+<%= f.submit "Next", class: "btn btn-lg btn-primary col-md-offset-8" %>
 
 <% end %>
 

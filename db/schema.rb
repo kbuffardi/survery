@@ -16,11 +16,11 @@ ActiveRecord::Schema.define(version: 20160504102751) do
   create_table "answers", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "user_ids",     default: "--- []\n"
-    t.text     "question_ids", default: "--- []\n"
-    t.text     "survey_ids",   default: "--- []\n"
-    t.text     "vas_values",   default: "--- []\n"
-    t.text     "food_ids",     default: "--- []\n"
+    t.text     "user_ids"
+    t.text     "question_ids"
+    t.text     "survey_ids"
+    t.text     "vas_values"
+    t.text     "food_ids"
   end
 
   create_table "categories", force: true do |t|
@@ -38,9 +38,9 @@ ActiveRecord::Schema.define(version: 20160504102751) do
     t.string  "ethnicity_other"
     t.string  "height"
     t.string  "weight"
-    t.text    "weight_management_practices",       default: "--- []\n"
-    t.text    "medical_conditions",                default: "--- []\n"
-    t.text    "medical_conditions_other",          default: "--- []\n"
+    t.text    "weight_management_practices"
+    t.text    "medical_conditions"
+    t.text    "medical_conditions_other"
     t.text    "weight_management_practices_other"
     t.integer "alcohol_consumption"
     t.integer "ethnicity"

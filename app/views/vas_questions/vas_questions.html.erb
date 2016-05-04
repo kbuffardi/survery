@@ -1,12 +1,12 @@
 <div class="progress">
   <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="<%= 20 + (@q_num * 3) %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= 20 + (@q_num * 3) %>%">
-    <span class="progress-text"><%= 15 + (@q_num * 3.35).to_i %>% Complete</span>
+    <span class="progress-text"><%= 15 + (@q_num * 2.8).to_i %>% Complete</span>
   </div>
 </div>
 
 <div class="vert-space-sm"> </div>
 
-<center><h3>For each of the following questions, please click and slide/drag anywhere on the line </h3></center>
+<center><h3>For each of the following questions, please click and then hold to slide anywhere on the line </h3></center>
 
 <div class="vert-space-lg"> </div>
 
@@ -14,7 +14,19 @@
 
 <% @foods.each do |food| %>
 
-  <h4 class="col-md-offset-1 col-md-10" style="font-size: 1.15em; line-height: 1.6em; clear: both;"><%= @question.prompt_left %><strong><span style="font-size: 1.1em"><%= food.name %></span></strong><% if @q_num == 14 %> or eating less <%= food.name %><% end %><%= @question.prompt_right %><% if @q_num == 2 %> &nbsp;_____&nbsp; <%= food.unit %><% end %></h4>
+  <h4 class="col-md-offset-1 col-md-10" style="font-size: 1.15em; line-height: 1.6em; clear: both;">
+  <%= @question.prompt_left %><strong><span style="font-size: 1.1em"><%= food.name %></span></strong><% if @q_num == 14 %>
+                                                                                                       or eating less <%= food.name %>
+                                                                                                      <% elsif @q_num == 3 || @q_num == 5 || @q_num == 15 %>
+                                                                                                        I eat <%= food.name %>
+                                                                                                      <% elsif @q_num == 10 %>, I will go out of my way to get <%= food.name %> <!-- do not format, becuase of html space for "," -->
+                                                                                                      <% elsif @q_num == 16 %>, I have eaten <%= food.name %>
+                                                                                                      <% elsif @q_num == 20 %>, I need to increase how much <%= food.name %>
+                                                                                                      <% end %><%= @question.prompt_right %>
+                                                                                                      <% if @q_num == 2 %>
+                                                                                                        &nbsp;_____&nbsp; <%= food.unit %>
+                                                                                                      <% end %>
+                                                                                                    </h4>
 
     <center><div class="slider-fill">
 
@@ -25,37 +37,54 @@
     <%= f.hidden_field :survey_ids, :multiple => true, :value => @survey.id %>
     <%= f.hidden_field :food_ids, :multiple => true, :value => food.id %>
 
+<% if @q_num == 3 || @q_num == 5 || @q_num == 6 || @q_num == 7 || @q_num == 8 || @q_num == 9 ||
+                  @q_num == 11 || @q_num == 12 || @q_num == 17 || @q_num == 18 || @q_num == 19 || @q_num == 21 ||
+                  @q_num == 22 || @q_num == 23 || @q_num == 24 || @q_num == 15 || @q_num == 16 || @q_num == 20 %>
+
+                  <div class="slider-ticks" id="slider-5tick1"> </div>
+                  <div class="slider-ticks" id="slider-5tick2"> </div>
+                  <div class="slider-ticks" id="slider-5tick3"> </div>
+                  <div class="slider-ticks" id="slider-5tick4"> </div>
+
+                  <div class="slider-ticks-text" id="slider-5tick-text1"> Never </div>
+                  <div class="slider-ticks-text" id="slider-5tick-text2"> Rarely </div>
+                  <div class="slider-ticks-text" id="slider-5tick-text3"> Sometimes </div>
+                  <div class="slider-ticks-text" id="slider-5tick-text4"> Almost every time </div>
+                  <div class="slider-ticks-text" id="slider-5tick-text5"> Every time </div>
+
+<% else %>
+
       <div class="slider-ticks" id="slider-tick1"> </div>
       <div class="slider-ticks" id="slider-tick2"> </div>
       <div class="slider-ticks" id="slider-tick3"> </div>
       <div class="slider-ticks" id="slider-tick4"> </div>
       <div class="slider-ticks" id="slider-tick5"> </div>
 
-
       <div class="slider-ticks-text" id="slider-tick-text1">  <% if @q_num == 2 %>                    0
-                                                              <% elsif @q_num == 4 || @q_num == 21 %> Agree
+                                                              <% elsif @q_num == 4 %> Agree
                                                               <% else %>                              Never
                                                               <% end %></div>
       <div class="slider-ticks-text" id="slider-tick-text2">  <% if @q_num == 2 %>                    1/4
-                                                              <% elsif @q_num == 4 || @q_num == 21 %>
+                                                              <% elsif @q_num == 4 %>
                                                               <% else %>                              Once a year
                                                               <% end %> </div>
       <div class="slider-ticks-text" id="slider-tick-text3">  <% if @q_num == 2 %>                    1/2
-                                                              <% elsif @q_num == 4 || @q_num == 21 %>
+                                                              <% elsif @q_num == 4 %>
                                                               <% else %>                              Once a month
                                                               <% end %></div>
       <div class="slider-ticks-text" id="slider-tick-text4">  <% if @q_num == 2 %>                    3/4
-                                                              <% elsif @q_num == 4 || @q_num == 21 %>
+                                                              <% elsif @q_num == 4  %>
                                                               <% else %>                              Once a week
                                                               <% end %></div>
       <div class="slider-ticks-text" id="slider-tick-text5">  <% if @q_num == 2 %>                    1
-                                                              <% elsif @q_num == 4 || @q_num == 21 %>
+                                                              <% elsif @q_num == 4 %>
                                                               <% else %>                              Once a day
                                                               <% end %></div>
       <div class="slider-ticks-text" id="slider-tick-text6">  <% if @q_num == 2 %>                    More than one
-                                                              <% elsif @q_num == 4 || @q_num == 21 %> Disagree
+                                                              <% elsif @q_num == 4 %> Disagree
                                                               <% else %>                              More than once a day
                                                               <% end %></div>
+<% end %>
 
 </div></center>
 
