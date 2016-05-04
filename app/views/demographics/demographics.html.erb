@@ -68,7 +68,8 @@
 
 <div class="vert-space-sm"></div>
 <h5 style="font-size: 1.15em">Height: </h5>
-  Feet and inches: <%= f.text_field :height %>
+<%= f.select :height, [['4'], ['7']] %>
+<%= f.collection_select :search, Category.all, :id, :name, { prompt: "Inches", :selected => params[:search], hide_label: :true }, class: "input-sm" %>
 
 <div class="vert-space-sm"></div>
 <h5 style="font-size: 1.15em">Weight: </h5>

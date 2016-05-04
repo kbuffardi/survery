@@ -36,7 +36,6 @@ ActiveRecord::Schema.define(version: 20160504102751) do
     t.boolean "raffle"
     t.integer "survey_id"
     t.string  "ethnicity_other"
-    t.string  "height"
     t.string  "weight"
     t.text    "weight_management_practices"
     t.text    "medical_conditions"
@@ -46,6 +45,7 @@ ActiveRecord::Schema.define(version: 20160504102751) do
     t.integer "ethnicity"
     t.integer "work"
     t.integer "income"
+    t.string  "height"
   end
 
   create_table "food_ranks", force: true do |t|
