@@ -11,4 +11,7 @@ class PagesController < ApplicationController
     @categories = @survey.categories
   end
 
+  def info
+  end
+  
 end

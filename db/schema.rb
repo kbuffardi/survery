@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160422134955) do
+ActiveRecord::Schema.define(version: 20160504102751) do
 
   create_table "answers", force: true do |t|
     t.datetime "created_at"
@@ -44,6 +44,8 @@ ActiveRecord::Schema.define(version: 20160422134955) do
     t.text    "weight_management_practices_other"
     t.integer "alcohol_consumption"
     t.integer "ethnicity"
+    t.integer "work"
+    t.integer "income"
   end
 
   create_table "food_ranks", force: true do |t|

@@ -34,4 +34,5 @@ Rails.application.routes.draw do
   get    "results"                   => "answers#show"
   get    "users"                     => "answers#users"
   get    "demographic_info"          => "answers#demographic_info"
+  get    "info"                      => "pages#info"
 end
