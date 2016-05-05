@@ -42,7 +42,7 @@
     <td style="font-size: 1.4em; padding: 13px; padding-left: 1.5em; padding-top: 19px; white-space: nowrap;">
       <%= category.name %>
     </td>
-    <td style="font-size: 1.15em; padding: 13px; padding-left: 1.5em; height: 71px">
+    <td style="font-size: 1.15em; padding: 13px; padding-left: 1.5em; height: 72px">
       <% category.foods.each_with_index do |food, i| %>
         <%= food.name %><% if i + 1 != category.foods.length %>, <% end %>
       <% end %>
