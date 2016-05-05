@@ -1,7 +1,7 @@
 
 <div class="progress">
-  <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100" style="width: 5%">
-    <span class="progress-text">5% Complete</span>
+  <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="6" aria-valuemin="0" aria-valuemax="100" style="width: 6%">
+    <span class="progress-text">6% Complete</span>
   </div>
 </div>
 <div class="vert-space-sm"> </div>
@@ -12,15 +12,61 @@
     <i>Problematic foods frequently contain higher amounts of fat and sugar and can lead to overeating.</i>
   </div>
 <div class="vert-space-sm"> </div>
+<div class="vert-space-sm"> </div>
 
+<div class="panel panel-default col-md-offset-1 col-md-10" style="width: 938px; padding: 0px">
+  <table class="table table-bordered table-striped" id="sortable">
+    <col style="width: 25%;">
+    <thead>
+      <tr>
+        <th style="font-size: 1.7em; padding: 16px; padding-left: 1.1em; padding-bottom: 21px">
+          Food Categories
+        </th>
+        <th style="font-size: 1.55em; padding: 16px; padding-left: 1.1em; padding-bottom: 21px">
 
-<div class="selections col-md-offset-1 checkbox checkbox-primary" style="font-size: 1.2em;">
-<%= form_for @survey do |f| %>
-	<%= f.hidden_field :user_id, :value => current_user.id %>
-	<%= f.collection_check_boxes :category_ids, Category.all, :id, :name, {:item_wrapper_class => 'checkbox'}, :multiple => true %><br>
+          <div class="selections col-md-offset-1 checkbox checkbox-primary" style="font-size: 1. em; margin: 0px">
+            <div style="height: 0px; margin: 0px">
+              <%= form_for @survey do |f| %>
+              <%= f.hidden_field :user_id, :value => current_user.id %>
+              <%= f.collection_check_boxes :category_ids, Category.all, :id, :name, {:item_wrapper_class => 'checkbox category'}, :class => "no-click category_table", :multiple => true %><br>
+            </div>
+          </div>
+            Example Foods in Each Category
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+
+<% @categories.each do |category| %>
+  <tr>
+    <td style="font-size: 1.4em; padding: 13px; padding-left: 1.5em; padding-top: 19px; white-space: nowrap;">
+      <%= category.name %>
+    </td>
+    <td style="font-size: 1.15em; padding: 13px; padding-left: 1.5em; height: 71px">
+      <% category.foods.each_with_index do |food, i| %>
+        <%= food.name %><% if i + 1 != category.foods.length %>, <% end %>
+      <% end %>
+    </td>
+  </tr>
+<% end %>
+</tbody>
+</table>
 </div>
 
 <hr>
-	<%= f.submit 'Next', :class => "col-md-offset-8 btn btn-lg btn-primary btn-surv" %>
+	<%= f.submit 'Next', :class => "col-md-offset-9 btn btn-lg btn-primary btn-surv", :disabled => true %>
 <% end %>
 </div>
+
+
+<script>
+$('.no-click').click(function(e) {
+  $(this).removeClass('no-click');
+  $(this).addClass('click');
+
+  if ($('.click').length > 0 ) {
+   var nextBtn = document.getElementsByName("commit")[0];
+   nextBtn.removeAttribute('disabled');
+  }
+});
+</script>

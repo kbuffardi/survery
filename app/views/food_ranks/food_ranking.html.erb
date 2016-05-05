@@ -31,7 +31,7 @@
         </th>
         <th style="padding-left: .8em; font-size: 1.2em">
           Food <div style="opacity: .8; pointer-events: none; position: relative; top: 39px; font-weight: normal; float: right; margin-right: 8%"><i style="font-size: .9em">Most Problematic </i> </div><div style="opacity: .8; pointer-events: none; height: 0; position: relative; top: <%= (38 * @i) + 16 %>px; font-weight: normal; float: right; clear: right; margin-right: 8%">
-            <i style="font-size: .9em">Least Problematic </i> </div>
+            <% if @food_ranks.size > 1 %><i style="font-size: .9em">Least Problematic </i><% end %> </div>
         </th>
       </tr>
     </thead>

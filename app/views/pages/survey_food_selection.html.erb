@@ -16,10 +16,22 @@
 	<% @categories.each do |category| %>
 		<h4 style="margin-bottom: 15px; margin-left: -5px"><strong style="font-size: 1.1em"><%= category.name %></strong></h4>
 <div style="margin-left: 16px">
-		<%= f.collection_check_boxes :food_ids, category.foods.all, :id, :name, {}, :multiple => true %><br>
+		<%= f.collection_check_boxes :food_ids, category.foods.all, :id, :name, {}, :class => "no-click", :multiple => true %><br>
     </div>
 	<% end %>
-	<%= f.submit 'Next', :class => "col-md-offset-8 btn btn-lg btn-primary btn-surv" %>
+	<%= f.submit 'Next', :class => "col-md-offset-8 btn btn-lg btn-primary btn-surv", :disabled => true %>
 
 <% end %>
 </div>
+
+<script>
+$('.no-click').click(function(e) {
+  $(this).removeClass('no-click');
+  $(this).addClass('click');
+
+  if ($('.click').length > 0 ) {
+   var nextBtn = document.getElementsByName("commit")[0];
+   nextBtn.removeAttribute('disabled');
+  }
+});
+</script>
