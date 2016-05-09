@@ -69,4 +69,13 @@ $('.no-click').click(function(e) {
    nextBtn.removeAttribute('disabled');
   }
 });
+$('.click').click(function(e) {
+  $(this).removeClass('click');
+  $(this).addClass('no-click');
+
+  if ($('.click').length <= 0 ) {
+   var nextBtn = document.getElementsByName("commit")[0];
+   nextBtn.addAttribute('disabled');
+  }
+});
 </script>
